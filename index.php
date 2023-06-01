@@ -497,23 +497,7 @@
         <div class="row">
           <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 order-md-2 order-lg-1">
             <div class="copyright mt-15">
-              <p>Copyright © 2020 | Designed by <a href="https://themeforest.net/user/wpsmasher"
-                  target="_blank">Wpsmasher</a></p>
-            </div>
-
-          </div>
-          <div class="col-xl-5 col-lg-3 col-md-12 order-md-1 order-lg-2">
-            <ul class="social-icon text-center mt-15">
-              <li><a href=""><i class="lab la-facebook-f"></i></a></li>
-              <li><a href=""><i class="lab la-twitter"></i></a></li>
-              <li><a href=""><i class="lab la-instagram"></i></a></li>
-              <li><a href=""><i class="lab la-vimeo"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 order-md-2 order-lg-3">
-            <div class="policy  text-right mt-15">
-              <a class="position-relative" href="#">Terms of Use </a>
-              <a class="ml-40" href="#">Privacy Policy</a>
+              <p>Copyright © 2020</p>
             </div>
           </div>
         </div>
