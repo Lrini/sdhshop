@@ -481,7 +481,7 @@
               <div class="footer-info">
                 <ul>
                   <li>Email: <span class="ml-5">sdh@gmail.com</span></li>
-                  <li>Phone:  <span class="ml-5">+948 256 347 968</span></li>
+                  <li>Phone:  <span class="ml-5">+081390657610</span></li>
                 </ul>
                 <p class="pr-65">Subscribe to our newsleter and stay 
                   up to date with latest offers and 
