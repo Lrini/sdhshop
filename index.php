@@ -504,12 +504,7 @@
       </div>
     </div>
   </footer>
-
   <!-- Footer Area Ends -->
-
-
-
-
   <!-- scripts -->
 
   <script src="js/vendor/jquery.min.js"></script>
