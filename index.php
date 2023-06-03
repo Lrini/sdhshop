@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- favicons and shortcut icons -->
-  <link rel="apple-touch-icon" href="icon.png">// ganti menjadi logo sekolah
+  <link rel="apple-touch-icon" href="icon.png"><!--ganti menjadi logo sekolah-->
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 
@@ -64,92 +64,12 @@
   <!-- header area starts -->
   <header>
     <div class="header-1 header-2 pt-35 pb-35">
-
-      <div class="side-menu ">
-        <div class="close-icon position-relative">
-          <button>X</button>
-        </div>
-        <div id="mobile-menu-2" class="main-menu mt-50">
-          <ul>
-            <li>
-              <span>Home <span class="dropdown-icon"> <i class="fa fa-caret-down"
-                aria-hidden="true"></i> </span></span>
-              
-              <ul class="sub-menu home-sub-menu pb-10 pt-10 pl-15 pr-15">
-                <li><a href="index.html">Home Style</a></li>
-                <li><a href="index_2.html">Home Style 2</a></li>
-              </ul>
-            </li>
-            <li>
-              <span>Shop <span class="dropdown-icon"> <i class="fa fa-caret-down" aria-hidden="true"></i>
-              </span></span>
-              <ul class="sub-menu  menu-level pb-10 pt-20 pl-15 pr-15">
-                <li>
-                  <div>
-                    <h4>Shop Grid <span class="dropdown-icon"> <i class="fa fa-caret-down" aria-hidden="true"></i>
-                      </span></h4>
-                    <ul class="sub-menu">
-
-                      <li><a href="shop_grid.html">Shop Grid</a></li>
-                      <li><a href="shop_grid_left_sidebar.html">Shop Grid LS</a></li>
-                      <li><a href="shop_grid_right_sidebar.html"> Shop Grid RS</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <h4>Shop List <span class="dropdown-icon"> <i class="fa fa-caret-down" aria-hidden="true"></i>
-                      </span></h4>
-                    <ul class="sub-menu pb-10 pl-15 pr-15">
-                      <li><a href="shop_list.html">Shop List</a></li>
-                      <li><a href="shop_list_left_sidebar.html">Shop List LS</a></li>
-                      <li><a href="shop_list_right_sidebar.html">Shop List RS</a></li>
-
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <h4>Shop Details <span class="dropdown-icon"> <i class="fa fa-caret-down" aria-hidden="true"></i>
-                      </span></h4>
-                    <ul class="sub-menu pb-10 pl-15 pr-15">
-                      <li><a href="shop_detalis.html">Shop Details</a></li>
-                      <li><a href="shop_detalis_left_sidebar.html">Shop Details LS</a></li>
-                      <li><a href="shop_detalis_right_sidebar.html">Shop Details RS</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <li><a href="shop_grid.html">Collection</a></li>
-            <li><span>Pages <span class="dropdown-icon"> <i class="fa fa-caret-down" aria-hidden="true"></i>
-            </span></span>
-              <ul class="sub-menu pb-10 pt-10 pl-15 pr-15">
-                <li><a href="about_us.html">About US</a></li>
-                <li><a href="my_wishlist.html">My Wishlist</a></li>
-                <li><a href="shopping_cart.html">Shopping Cart</a></li>
-                <li><a href="checkout_page.html">Checkout</a></li>
-                <li><a href="news_detalis.html">News Details</a></li>
-              </ul>
-            </li>
-            <li><span>Blog <span class="dropdown-icon"> <i class="fa fa-caret-down"
-              aria-hidden="true"></i> </span></span>
-              <ul class="sub-menu pb-10 pt-10 pl-15 pr-15">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="blog-left_sidebar.html">Blog LS</a></li>
-                <li><a href="blog_right_sidebar.html">Blog RS</a></li>
-              </ul>
-            </li>
-            <li><a href="contact_page.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
       <div class="container">
         <div class="row">
           <div class="col-xl-5 col-lg-5 col-md-3 col-sm-2 col-2">
             <div class="menu-bar ">
               
-              <button>ME <br>NU</button>
+             <!-- <button>ME <br>NU</button>-->
             </div>
             <div class="mobile-menu2"></div>
           </div>
@@ -176,68 +96,64 @@
                     </form>
                   </div>
                 </li>
-                <li><a href="my_wishlist.html"><i class="fas fa-shopping-cart"></i>
-                    <span class="badge badge-pink ">1</span>
-                  </a></li>
-                <li class="position-relative"><span class="product-cart"><i class="fas fa-user"></i></span>
-
-                  <div class="product-on-sale pb-30">
-                    <div class="product-close-icon">
-                      <span>X</span>
-                    </div>
-                    <div class="product-wrapper d-flex">
-                      <div class="product-img position-relative ">
-                        <img src="img/products/22.png" alt="product">
-                        <div class="cart-icon">
-                          <a href="shopping_cart.html"><i class="las la-cart-plus"></i></a>
-                        </div>
-                      </div>
-                      <div class="product-details mt-10">
-                        <span>Shoes</span>
-                        <h6><a href="shop_detalis.html">Leather Menz Shoes</a></h6>
-                        <div class="price d-flex">
-                          <span>$999</span>
-                          <del>$899</del>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-wrapper mt-20 d-flex">
-                      <div class="product-img position-relative">
-                        <img src="img/products/23.png" alt="product">
-                        <div class="cart-icon">
-                          <a href="shopping_cart.html"><i class="las la-cart-plus"></i></a>
-                        </div>
-                      </div>
-                      <div class="product-details mt-10">
-                        <span>Shoes</span>
-                        <h6><a href="shop_detalis.html">Leather Menz Shoes</a></h6>
-                        <div class="price d-flex">
-                          <span>$999</span>
-                          <del>$899</del>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="cart-price pr-20 pt-30">
-                      <p>Subtotal: <span>$999.00</span></p>
-                      <p>Total: <span>$999.00</span></p>
-                    </div>
-                    <div class="cart-button mt-20 pl-15">
-                      <a  href="shopping_cart.html">View Cart</a>
-                      <a  href="checkout_page.html">Checkout</a>
-                    </div>
-                  </div>
+                <li>
+                <a type="button" data-toggle="modal" data-target="#exampleModal" >Sign In</a>
+                </li>
+                <li>
+                <a type="button" data-toggle="modal" data-target="#exampleModal1" >Sign Up</a>
                 </li>
               </ul>
             </div>
           </div>
-
         </div>
         <div class="mobile-menu"></div>
       </div>
     </div>
   </header>
   <!-- header area ends -->
+   <!-- Modal Login -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Form Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--tutup modal Login-->
 
+            <!-- Modal register -->
+   <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Form register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--tutup modal register-->
   <!-- slider area starts -->
   <div class="slider-area slider-2 pt-105">
     <div class="single-slide slider-height position-relative">
@@ -249,7 +165,6 @@
               <p class="pb-30">Lorem ipsum dolor sit
                 Amet, cons ectetur adip
                 Isicing elit, sed do eiusmo</p>
-              <a href="Shop_grid.html" class="slider-btn position-relative">LOGIN NOW</a><!--menuju ke halaman login-->
             </div>
           </div>
           <div class="slider-images ">
@@ -271,7 +186,6 @@
               <p class="pb-30">Lorem ipsum dolor sit
                 Amet, cons ectetur adip
                 Isicing elit, sed do eiusmo</p>
-              <a href="Shop_grid.html" class="slider-btn position-relative">LOGIN NOW</a> <!--menuju ke halaman login -->
             </div>
           </div>
           <div class="slider-images ">
@@ -293,7 +207,7 @@
               <p class="pb-30">Lorem ipsum dolor sit
                 Amet, cons ectetur adip
                 Isicing elit, sed do eiusmo</p>
-              <a href="Shop_grid.html" class="slider-btn position-relative">LOGIN NOW</a> <!-- Menuju halaman login-->
+             
             </div>
           </div>
           <div class="slider-images ">
@@ -315,7 +229,7 @@
               <p class="pb-30">Lorem ipsum dolor sit
                 Amet, cons ectetur adip
                 Isicing elit, sed do eiusmo</p>
-              <a href="Shop_grid.html" class="slider-btn position-relative">LOGIN NOW</a> <!--Menuju halaman login-->
+             
             </div>
           </div>
           <div class="slider-images ">
@@ -481,7 +395,7 @@
               <div class="footer-info">
                 <ul>
                   <li>Email: <span class="ml-5">sdh@gmail.com</span></li>
-                  <li>Phone:  <span class="ml-5">+948 256 347 968</span></li>
+                  <li>Phone:  <span class="ml-5">+62 812-3676-8045</span></li>
                 </ul>
                 <p class="pr-65">Subscribe to our newsleter and stay 
                   up to date with latest offers and 
@@ -504,12 +418,7 @@
       </div>
     </div>
   </footer>
-
   <!-- Footer Area Ends -->
-
-
-
-
   <!-- scripts -->
 
   <script src="js/vendor/jquery.min.js"></script>
