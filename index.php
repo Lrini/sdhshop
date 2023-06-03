@@ -122,11 +122,20 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    ...
+                  <form>
+                      <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+                      <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>
@@ -144,11 +153,32 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    ...
+                      <form action="#">
+                      <div class="form-group">
+                        <label>Nama Anda</label>
+                        <input type="text" class="form-control" id="nama" placeholder="Nama anda ">
+                      </div>
+                      <div class="form-group">
+                        <label>No handphone</label>
+                        <input type="text" class="form-control" id="no_hp" placeholder="No handphone yang dapat dihubungi">
+                      </div>
+                      <div class="form-group">
+                        <label>Alamat</label>
+                        <input type="text" class="form-control" id="alamat" placeholder="alamat anda">
+                      </div>
+                      <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+                      <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>
