@@ -113,33 +113,66 @@
   <!-- header area ends -->
    <!-- Modal Login -->
    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Form Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                  <form>
-                      <div class="form-group">
-                        <label>Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                      </div>
-                      <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                      </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                  </div>
-                </div>
-              </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Form Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <form id="loginForm" method="post" action="logincheck.php">
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" name="email" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <div id="loginError" style="display: none; color: red; margin-top: 10px;">Email or password is incorrect</div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Skrip Javascript untuk modal -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#loginForm').submit(function(e) {
+            e.preventDefault(); // Mencegah pengiriman form secara default
+            var formData = $(this).serialize(); // Mengambil data form
+
+            // Kirim data form ke logincheck.php menggunakan AJAX
+            $.ajax({
+                type: 'POST',
+                url: 'logincheck.php',
+                data: formData,
+                success: function(response) {
+                    if (response == 'success') {
+                        // Redirect ke halaman sukses atau lakukan tindakan lainnya
+                        window.location.href = 'success.php';
+                    } else {
+                        // Tampilkan pesan error
+                        $('#loginError').show();
+                    }
+                },
+                error: function() {
+                    // Tampilkan pesan error
+                    $('#loginError').show();
+                }
+            });
+        });
+    });
+</script>
+
             <!--tutup modal Login-->
 
             <!-- Modal register -->
