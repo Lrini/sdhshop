@@ -183,6 +183,7 @@
                 </div>
               </div>
             </div>
+              <from action="submit.php" method="POST">
             <!--tutup modal register-->
   <!-- slider area starts -->
   <div class="slider-area slider-2 pt-105">
