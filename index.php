@@ -153,27 +153,27 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                      <form action="#">
+                      <form action="submit.php" method="post">
                       <div class="form-group">
                         <label>Nama Anda</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Nama anda ">
+                        <input type="text" class="form-control" name="nama" placeholder="Nama anda ">
                       </div>
                       <div class="form-group">
                         <label>No handphone</label>
-                        <input type="text" class="form-control" id="no_hp" placeholder="No handphone yang dapat dihubungi">
+                        <input type="text" class="form-control" name="no_hp"  placeholder="No handphone yang dapat dihubungi">
                       </div>
                       <div class="form-group">
                         <label>Alamat</label>
-                        <input type="text" class="form-control" id="alamat" placeholder="alamat anda">
+                        <input type="text" class="form-control" name="alamat"  placeholder="alamat anda">
                       </div>
                       <div class="form-group">
                         <label>Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="email" class="form-control" name="email"  placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
                       <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" name="pass"  placeholder="Password">
                       </div>
                       <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
@@ -183,6 +183,7 @@
                 </div>
               </div>
             </div>
+              <from action="submit.php" method="POST">
             <!--tutup modal register-->
   <!-- slider area starts -->
   <div class="slider-area slider-2 pt-105">
