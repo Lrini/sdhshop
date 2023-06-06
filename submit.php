@@ -1,31 +1,35 @@
-<?php
+<?php 
+// mengaktifkan session php
+session_start();
 
-//create database connection 
-$servername = "localhost" ;
-$username = "monart" ;
-$password = "%M051c1A)%(" ;
-$dbname = "sdhshop" ;
+// menghubungkan dengan koneksi
+include 'koneksi.php';
 
-//create connection
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-// Retrieve form data
+// menangkap data yang dikirim dari form
 $nama = $_POST['nama'];
-$no_hp = $_POST['no_hp'];
 $alamat = $_POST['alamat'];
-$email = $_POST['exampleInputEmail1'];
-$password = $_POST['exampleInputPassword1'];
+$no_hp = $_POST['no_hp'];
+$email = $_POST['email'];
+$pass = $_POST['pass'];
 
-// Prepare and execute the SQL statement
-$stmt = $conn->prepare("INSERT INTO your_table_name (nama, no_hp, alamat, email, password) VALUES (:nama, :no_hp, :alamat, :email, :password)");
-$stmt->bindParam(':nama', $nama);
-$stmt->bindParam(':no_hp', $no_hp);
-$stmt->bindParam(':alamat', $alamat);
-$stmt->bindParam(':email', $email);
-$stmt->bindParam(':password', $password);
-$stmt->execute();
+//buat encrypt password
+$hashedPassword = password_hash($pass, PASSWORD_DEFAULT); 
 
-// Close database connection
-$conn = null;
+//insert ke database mysql pada phpmyadmin
+$data = mysqli_query($koneksi,"insert into user (nama,alamat,no_hp,email,pass,level,status) values ('$nama','$alamat','$no_hp','$email','$hashedPassword','user','pasif')");
+//cek kemabli apakah data sudah berhasil masuk ke mysql atau tidak jika tidak akan munculkan alert gagal registrasi
+//kalau berhasil akan pergi kehalaman dalam folder user 
+if($data > 0){
+                    echo'    <script>alert("berhasil");window.location="user/index.php"</script>';      
+                }
+            else
+            {
+                ?>
+                <div style="color: red;font-size: 30px">
+                <center>
+                <b>Gagal registrasi  !!</b>
+                </center>
+                </div>
+                <?php
+            }
 ?>
