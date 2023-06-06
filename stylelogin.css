@@ -1,0 +1,61 @@
+    /* Animasi saat modal muncul */
+    .modal-content {
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: modal-appear 0.3s ease forwards;
+    }
+
+    @keyframes modal-appear {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Gaya tombol Close */
+    .modal-header .close {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      padding: 10px;
+      color: #000;
+      font-size: 30px;
+      font-weight: 700;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+      margin-left: -20px; /* Penambahan margin kiri */
+    }
+
+    .modal-header .close:hover {
+      opacity: 1;
+    }
+
+    /* Gaya input form */
+    .form-group label {
+      font-weight: 600;
+    }
+
+    .form-control {
+      border-radius: 20px;
+      border-color: #ccc;
+    }
+
+    /* Gaya tombol Submit */
+    .btn-primary {
+      border-radius: 20px;
+      background-color: #007bff;
+      border-color: #007bff;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    /* Penambahan CSS baru */
+    .modal-dialog {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
