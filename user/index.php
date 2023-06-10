@@ -51,14 +51,14 @@
   <!-- =============Preloader Ends=============-->
 
   <!-- auto-popup starts-->
-  <div id="autopopup-option" class="auto_popup position-fixed pt-100 pb-115">
+  <!-- <div id="autopopup-option" class="auto_popup position-fixed pt-100 pb-115">
     <div id="close-button" class="position-absolute">
       <button class="bg-transparent">X</button>
     </div>
     <h3 class=" pb-15">Pengumuman</h3>
     <p>Untuk Orang tua atau wali yang belum mempunyai akun silakan melakukan registrasi 
     </p>
-  </div>
+  </div> -->
   <!-- auto_popup ends -->
 
   <!-- header area starts -->
@@ -97,10 +97,10 @@
                   </div>
                 </li>
                 <li>
-                <a type="button" data-toggle="modal" data-target="#exampleModal" >Sign In</a>
+                <!-- <a type="button" data-toggle="modal" data-target="#exampleModal" >Sign In</a> -->
                 </li>
                 <li>
-                <a type="button" data-toggle="modal" data-target="#exampleModal1" >Sign Up</a>
+                <a type="button" data-toggle="modal" data-target="#exampleModal1" >Logouts</a>
                 </li>
               </ul>
             </div>
