@@ -122,15 +122,15 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                  <form>
+                  <form  method="post" action="logincheck.php">
                       <div class="form-group">
                         <label>Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="email" class="form-control" name="email" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
                       <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" name="pass" placeholder="Password">
                       </div>
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
