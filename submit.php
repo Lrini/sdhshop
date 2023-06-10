@@ -20,7 +20,14 @@ $data = mysqli_query($koneksi,"insert into user (nama,alamat,no_hp,email,pass,le
 //cek kemabli apakah data sudah berhasil masuk ke mysql atau tidak jika tidak akan munculkan alert gagal registrasi
 //kalau berhasil akan pergi kehalaman dalam folder user 
 if($data > 0){
-                    echo'    <script>alert("berhasil");window.location="user/index.php"</script>';      
+                    echo'    <script>alert("berhasil");window.location="user/index.php"</script>';     
+//insert ke database mysql pada phpmyadmin
+$data = mysqli_query($koneksi,"insert into user (nama,alamat,no_hp,email,pass,level,status) values ('$nama','$alamat','$no_hp','$email','$pass','user','pasif')");
+//cek kemabli apakah data sudah berhasil masuk ke mysql atau tidak jika tidak akan munculkan alert gagal registrasi
+//kalau berhasil akan pergi kehalaman dalam folder user 
+if($data > 0){
+                        echo'    <script>alert("berhasil");window.location="user/index.php"</script>';
+
                 }
             else
             {
