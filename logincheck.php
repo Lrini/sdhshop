@@ -26,7 +26,7 @@ if($cek > 0){
 		session_start();
 		$_SESSION['id'] = $data2['id_user'];
 		$_SESSION['name'] = $data2['nama'];
-		header("location:admin/index.php");
+		header("location:admin/views/index.ejs");
 	}else{
 		echo '<script>alert("akun anda belum aktif mohon menunggu");window.location="index.php"</script>';
 	}
