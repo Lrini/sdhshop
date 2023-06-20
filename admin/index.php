@@ -30,63 +30,16 @@
                             </button>
                         </div>
         
-                        <div class="d-flex align-items-center">
-        
-                            <div class="dropdown d-inline-block">
-                                <button type="button" class="btn header-item noti-icon waves-effect waves-light" id="page-header-notifications-dropdown"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="mdi mdi-bell"></i>
-                                    <span class="badge badge-danger badge-pill">3</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
-                                    aria-labelledby="page-header-notifications-dropdown">
-                                    <div class="p-3">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h6 class="m-0"> Notifications </h6>
-                                            </div>
-                                            <div class="col-auto">
-                                                <a href="#!" class="small"> View All</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div data-simplebar style="max-height: 230px;">
-                                        <a href="" class="text-reset notification-item">
-                                            <div class="media">
-                                                <img src="assets/images/users/avatar-2.jpg"
-                                                    class="mr-3 rounded-circle avatar-xs" alt="user-pic">
-                                                <div class="media-body">
-                                                    <h6 class="mt-0 mb-1">Samuel Coverdale</h6>
-                                                    <p class="font-size-12 mb-1">You have new follower on Instagram</p>
-                                                    <p class="font-size-12 mb-0 text-muted"><i class="mdi mdi-clock-outline"></i> 2 min ago</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="p-2 border-top">
-                                        <a class="btn btn-sm btn-light btn-block text-center" href="javascript:void(0)">
-                                            <i class="mdi mdi-arrow-down-circle mr-1"></i> Load More..
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-        
+                        <div class="d-flex align-items-center">       
                             <div class="dropdown d-inline-block ml-2">
                                 <button type="button" class="btn header-item waves-effect waves-light"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-3.jpg"
                                         alt="Header Avatar">
-                                    <span class="d-none d-sm-inline-block ml-1">Donald M.</span>
+                                    <span class="d-none d-sm-inline-block ml-1">Immanuel</span>
                                     <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                        <span>Profile</span>
-                                        <span>
-                                            <span class="badge badge-pill badge-warning">1</span>
-                                        </span>
-                                    </a>
                                     <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
                                         <span>Log Out</span>
                                     </a>
@@ -109,16 +62,114 @@
                     <div class="container-fluid">
                         <!-- start page title -->
                         <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-flex align-items-center justify-content-between">
-                                    <h4 class="mb-0 font-size-18">Starter</h4>
-                                    
-                                </div>
-                            </div>
-                        </div>     
-                        <!-- end page title -->
+                            <div class="col-md-6 col-xl-3">
+                                <div class="card">
+                                        <div class="card-body">
+                                            <div class="mb-4">
+                                                <h5 class="card-title mb-0">Jumlah Tingakatan SD</h5>
+                                            </div>
+                                            <div class="row d-flex align-items-center mb-4">
+                                                <div class="col-8">
+                                                    <h2 class="d-flex align-items-center mb-0">
+                                                        $17.21
+                                                    </h2>
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <span class="text-muted">12.5% <i
+                                                            class="mdi mdi-arrow-up text-success"></i></span>
+                                                </div>
+                                            </div>
 
-                        
+                                            <div class="progress shadow-sm" style="height: 5px;">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 57%;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end card body-->
+                                    </div><!-- end card-->
+                            </div>
+                            <div class="col-md-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="mb-4">
+                                            <h5 class="card-title mb-0">Tingkatan SMP </h5>
+                                        </div>
+                                        <div class="row d-flex align-items-center mb-4">
+                                            <div class="col-8">
+                                                <h2 class="d-flex align-items-center mb-0">
+                                                    $1875.54
+                                                </h2>
+                                            </div>
+                                            <div class="col-4 text-right">
+                                                <span class="text-muted">18.71% <i
+                                                        class="mdi mdi-arrow-down text-danger"></i></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="progress shadow-sm" style="height: 5px;">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 57%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end card body-->
+                                </div><!-- end card-->
+                            </div> <!-- end col-->
+                            <div class="col-md-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="mb-4">
+                                            <h5 class="card-title mb-0">SMA</h5>
+                                        </div>
+                                        <div class="row d-flex align-items-center mb-4">
+                                            <div class="col-8">
+                                                <h2 class="d-flex align-items-center mb-0">
+                                                    $784.62
+                                                </h2>
+                                            </div>
+                                            <div class="col-4 text-right">
+                                                <span class="text-muted">57% <i
+                                                        class="mdi mdi-arrow-up text-success"></i></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="progress shadow-sm" style="height: 5px;">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 57%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end card body-->
+                                </div>
+                                <!--end card-->
+                            </div> <!-- end col-->
+                            <div class="col-md-6 col-xl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="mb-4">
+                                            <h5 class="card-title mb-0">Jumlah Penjualan</h5>
+                                        </div>
+                                        <div class="row d-flex align-items-center mb-4">
+                                            <div class="col-8">
+                                                <h2 class="d-flex align-items-center mb-0">
+                                                    $784.62
+                                                </h2>
+                                            </div>
+                                            <div class="col-4 text-right">
+                                                <span class="text-muted">57% <i
+                                                        class="mdi mdi-arrow-up text-success"></i></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="progress shadow-sm" style="height: 5px;">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 57%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end card body-->
+                                </div>
+                                <!--end card-->
+                            </div> <!-- end col-->
+                        </div>     
+                        <!-- end page title -->                       
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->

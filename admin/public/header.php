@@ -14,3 +14,15 @@
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/theme.min.css" rel="stylesheet" type="text/css" />
 
+
+        <!-- Plugins css -->
+        <!-- <link href="../plugins/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="../plugins/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="../plugins/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="../plugins/datatables/select.bootstrap4.css" rel="stylesheet" type="text/css" /> -->
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+    
+
