@@ -9,7 +9,7 @@ $pass =md5($_POST['pass']);
 
 
 $data = mysqli_query($koneksi," select * from user where email ='$email' and pass ='$pass'");
-$cek = mysqli_num_rows($data);
+$cek = mysqli_num_rows($data); 
 $data2 = mysqli_fetch_array($data);
 if($cek > 0){
 	if($data2['level']=='user'){
