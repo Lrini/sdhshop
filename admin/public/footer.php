@@ -1,18 +1,18 @@
 
         <!-- jQuery  -->
-        <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/js/waves.js"></script>
-        <script src="../assets/js/simplebar.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/simplebar.min.js"></script>
 
         <!-- Sparkline Js-->
-        <script src="../plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <script src="plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
 
         <!-- Chart Js-->
         <script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
 
         <!-- Chart Custom Js-->
-         <script src="../assets/pages/knob-chart-demo.js"></script>
+         <script src="assets/pages/knob-chart-demo.js"></script>
 
         <!-- Morris Js-->
         <script src="../plugins/morris-js/morris.min.js"></script>
@@ -21,8 +21,8 @@
         <script src="../plugins/raphael/raphael.min.js"></script>
 
         <!-- Custom Js -->
-        <script src="../assets/pages/dashboard-demo.js"></script>
+        <script src="assets/pages/dashboard-demo.js"></script>
 
         <!-- App js -->
-        <script src="../assets/js/theme.js"></script>
+        <script src="assets/js/theme.js"></script>
 </html>
