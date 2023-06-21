@@ -98,6 +98,7 @@
                                         <th>Nama Admin</th>
                                         <th>No Handphone</th>
                                         <th>Email</th>
+                                        <th>Pilihan</th>
                                     </tr>
                                 </thead>
 
@@ -112,6 +113,9 @@
                                     echo "<td>$data[nama]</td>";
                                     echo "<td>$data[no_hp]</td>";
                                     echo "<td>$data[email]</td>";
+                                    echo " <td> <a href ='#'><i class='btn btn-primary waves-effect waves-light'>Edit</i></a>
+                                                <a href ='#'><i class='btn btn-danger waves-effect waves-light'>Hapus</i></a>
+                                        </td>";
                                     echo "</tr>";
                                     $no++;
                                 }
