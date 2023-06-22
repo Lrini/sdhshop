@@ -8,21 +8,14 @@ include 'koneksi.php';
 // menangkap data yang dikirim dari form
 $nama = $_POST['nama'];
 $alamat = $_POST['alamat'];
-$no_hp = $_POST['no_hp'];
-$email = $_POST['email'];
-$pass = $_POST['pass'];
+$email = $_POST['exampleInputEmail1'];
+$password = $_POST['exampleInputPassword1'];
 
-$password = md5($pass);
-
-$data = mysqli_query($koneksi,"insert into user (nama,alamat,no_hp,email,pass,level,status) values ('$nama','$alamat','$no_hp','$email','$password','user','pasif')");
-//cek kemabli apakah data sudah berhasil masuk ke mysql atau tidak jika tidak akan munculkan alert gagal registrasi
-//kalau berhasil akan pergi kehalaman dalam folder user 
-if($data > 0){
-                        echo'    <script>alert("berhasil");window.location="index.php"</script>';
-
-                }
-            else
-            {
-                echo'    <script>alert("gagal");window.location="index.php"</script>';
-            }
-?>
+// Prepare and execute the SQL statement
+$stmt = $conn->prepare("INSERT INTO your_table_name (nama, no_hp, alamat, email, password) VALUES (:nama, :no_hp, :alamat, :email, :password)");
+$stmt->bindParam(':nama', $nama);
+$stmt->bindParam(':no_hp', $no_hp);
+$stmt->bindParam(':alamat', $alamat);
+$stmt->bindParam(':email', $email);
+$stmt->bindParam(':password', $password);
+$stmt->execute();
