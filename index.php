@@ -212,6 +212,26 @@
                         }
                       }
                   ?>
+                  <?php
+                    if(isset($_GET['d'])){
+                      $r = $_GET['d'];
+                      if ($d == 'gagal'){
+                        echo "
+                            <div role='alert' class='alert alert-danger'>
+                              <strong> Gagal register silakan ulangi lagi!</strong>    
+                            </div>
+                        
+                        ";
+                      } else if($d == 'sukses'){
+                        echo "
+                            <div role='alert' class='alert alert-info'>
+                              <strong>Berhasil register. Menunggu konfirmasi via whatsapp dari admin SDH Kupang !</strong>    
+                            </div>
+                        
+                        ";
+                      }
+                    }
+                  ?>
             </div>
           </div>   
           <div class="col-xl-5 col-lg-5  col-md-6">
