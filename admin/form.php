@@ -98,6 +98,7 @@
                                         <th>Nama Admin</th>
                                         <th>No Handphone</th>
                                         <th>Email</th>
+                                        <th>Pilihan</th>
                                     </tr>
                                 </thead>
 
@@ -112,6 +113,11 @@
                                     echo "<td>$data[nama]</td>";
                                     echo "<td>$data[no_hp]</td>";
                                     echo "<td>$data[email]</td>";
+                                    echo "<td>
+                                        <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='".$data['id_user']."'>Edit</a>
+                                    
+                                    </td>
+                                    ";
                                     echo "</tr>";
                                     $no++;
                                 }
@@ -122,6 +128,23 @@
                        </div>
                         <!-- end page title -->                       
                     </div> <!-- container-fluid -->
+
+                    <div id="editData5" class="modal fade">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Form Edit admin</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="info_update5">
+                                    <?php include "./modal/admin.php" ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 <!-- End Page-content -->
 
@@ -148,8 +171,26 @@
 
         </div>
         <!-- END layout-wrapper -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script><!-- -->
         <script src="assets/js/jquery.dataTables.js"></script>
+        <script type="text/javascript">
+                        $(document).ready(function(){
+                            $(document).on('click','.edit_data5',function(){
+                                var edit_id5=$(this).attr('id');
+                                $.ajax({
+                                    url:"./modal/admin.php",
+                                    type:"post",
+                                    data:{edit_id5:edit_id5},
+                                    success:function(data){
+                                        $("#info_update5").html(data);
+                                        jQuery.noConflict();
+                                        $("#editData5").modal('show');
+                                    }
+                                });
+                            });
+                        });
+                    </script>
         <script>
             $(document).ready(function(){
              $('#contoh').DataTable();
