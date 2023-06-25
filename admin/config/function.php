@@ -41,4 +41,10 @@ function editadmin(){
 
 }
 
+//function untuk hapus data 
+function hapusadmin($id_user){
+    global $kon;
+    $sql =mysqli_query($kon,"DELETE FROM user where id_user=$id_user");
+    return mysqli_affected_rows($kon);
+}
 ?>
