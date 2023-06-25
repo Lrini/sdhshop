@@ -10,7 +10,24 @@ function query($query){
     }
     return $rows;
 }
+//function untuk tambah data atau simpan data
+function tambahadmin(){
+    global $kon;
+    $nama = $_POST['nama'];
+    $no_hp = $_POST['no_hp'];
+    $alamat = $_POST['alamat'];
+    $email = $_POST['email'];
+    $pass=$_POST['pass'];
 
+    $password = md5($pass);
+
+     $sql = mysqli_query($kon,"insert into user (nama,no_hp,alamat,email,pass,level,status) values ('$nama','$no_hp','$alamat','$email','$password','admin','pasif')");
+     return mysqli_affected_rows($kon);
+
+}
+
+
+//function untuk edit data
 function editadmin(){
     global $kon;
     $user =$_POST['id_user'];
