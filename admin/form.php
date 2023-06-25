@@ -15,7 +15,7 @@
         <div id="layout-wrapper">
 
             <div class="main-content">
-                <?php include "public/akun.php" ?>
+                <?php include "public/akun.php"; ?>
                 <div class="topnav">
                     <div class="container-fluid">
                         <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
@@ -26,7 +26,8 @@
                 </div>                
                 <div class="page-content">
                     <div class="container-fluid">
-                    <?php if(isset($_GET['r'])): ?>
+                        <!-- start page title -->
+                        <?php if(isset($_GET['r'])): ?>
                     <?php
                         $r = $_GET['r'];
                         if($r=='sukses'){
@@ -46,7 +47,6 @@
                         <strong> <?php echo $r; ?>!</strong>    
                     </div>
                     <?php endif; ?>
-                        <!-- start page title -->
                         <div class="row">
                         <div class="col-xl-6">
                         <div class="card">
@@ -126,7 +126,7 @@
                                     echo "<td>$data[email]</td>";
                                     echo "<td>
                                         <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='".$data['id_user']."'>Edit</a>
-                                    
+                                        <a href = 'config/hapusadmin.php?id_user=".$data['id_user']."' class='btn btn-sm btn-danger'>Hapus</a>
                                     </td>
                                     ";
                                     echo "</tr>";

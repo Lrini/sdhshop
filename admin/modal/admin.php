@@ -7,7 +7,7 @@
 			<form role="form" action="config/adminupdate.php" method="post" enctype="multipart/form-data">
 			 <div class="from-group">
                 <label>Id_user </label>
-			 	<input type="text" class="form-control" name="id_user" value="<?php echo $sql['id_user'] ?>" required='required' disabled='disabled'>
+			 	<input type="text" class="form-control" name="id_user" value="<?php echo $sql['id_user'] ?>" required='required'>
                  <input type="hidden" name="id_user" value="<?php echo $sql['id_user'] ?>">
 			 </div>
 			 <div class="form-group">
@@ -16,15 +16,15 @@
             </div>
             <div class="form-group">
                     <label> No handphone</label>
-                    <input type="text" class="form-control" name="no_hp" value="<?php echo $sql ['no_hp'] ?>" placeholder="Nama"  />
+                    <input type="text" class="form-control" name="no_hp" value="<?php echo $sql ['no_hp'] ?>" placeholder="No handphone"  />
             </div>
             <div class="form-group">
                     <label>Alamat</label>
-                    <input type="text" class="form-control" name="alamat" value="<?php echo $sql ['nama'] ?>" placeholder="Nama"  />
+                    <input type="text" class="form-control" name="alamat" value="<?php echo $sql ['alamat'] ?>" placeholder="Alamat"  />
             </div>
             <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" name="email" value="<?php echo $sql ['email'] ?>" placeholder="Nama"  />
+                    <input type="text" class="form-control" name="email" value="<?php echo $sql ['email'] ?>" placeholder="Email"  />
             </div>
             <div class="form-group">
                     <label>Password</label>

@@ -33,9 +33,10 @@ function editadmin(){
     $user =$_POST['id_user'];
     $nama = $_POST['nama'];
     $no_hp = $_POST['no_hp'];
+    $alamat = $_POST['alamat'];
     $email = $_POST['email'];
     $pass = $_POST['pass'];
-     $sql = mysqli_query($kon,"update user set nama='$nama',no_hp='$no_hp',email='$email',pass='$pass' where id_user='$user'");
+     $sql = mysqli_query($kon,"update user set nama='$nama',no_hp='$no_hp',alamat='$alamat',email='$email',pass='$pass' where id_user='$user'");
      return mysqli_affected_rows($kon);
 
 }
