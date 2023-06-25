@@ -15,43 +15,7 @@
         <div id="layout-wrapper">
 
             <div class="main-content">
-
-                <header id="page-topbar">
-                    <div class="navbar-header">
-                        <!-- LOGO -->
-                        <div class="navbar-brand-box d-flex align-items-left">
-                            <a href="index.ejs" class="logo">
-                                <!--<i class="mdi mdi-album"></i> ganti dengan logo SDH -->
-                                <span>
-                                   <!-- Xeloro-->
-                                </span>
-                            </a>
-
-                            <button type="button" class="btn btn-sm mr-2 font-size-16 d-lg-none header-item waves-effect waves-light" data-toggle="collapse" data-target="#topnav-menu-content">
-                                <i class="fa fa-fw fa-bars"></i>
-                            </button>
-                        </div>
-        
-                        <div class="d-flex align-items-center">       
-                            <div class="dropdown d-inline-block ml-2">
-                                <button type="button" class="btn header-item waves-effect waves-light"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-3.jpg"
-                                        alt="Header Avatar">
-                                    <span class="d-none d-sm-inline-block ml-1">Immanuel</span>
-                                    <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                        <span>Log Out</span>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </header>
-
+                <?php include "public/akun.php"; ?>
                 <div class="topnav">
                     <div class="container-fluid">
                         <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
@@ -63,6 +27,26 @@
                 <div class="page-content">
                     <div class="container-fluid">
                         <!-- start page title -->
+                        <?php if(isset($_GET['r'])): ?>
+                    <?php
+                        $r = $_GET['r'];
+                        if($r=='sukses'){
+                            $class='success';
+                        }else if($r=='updated'){
+                            $class='info';   
+                        }else if($r=='gagal'){
+                            $class='danger';   
+                        }else if($r=='added an account'){
+                            $class='success';   
+                        }else{
+                            $class='hide';
+                        }
+                    ?>
+                   <div role="alert" class="alert alert-<?php  echo $class?> ">
+                        
+                        <strong> <?php echo $r; ?>!</strong>    
+                    </div>
+                    <?php endif; ?>
                         <div class="row">
                         <div class="col-xl-6">
                         <div class="card">
@@ -71,20 +55,47 @@
                                         <h4 class="card-title">Form Admin</h4>
                                         <p class="card-subtitle mb-4">Halaman untuk input admin yang menggunakan halaman admin ini</p>
     
-                                        <form>
+                                        <form action="" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <label>Nama admin</label>
+                                                <input type="text" class="form-control" name="nama" placeholder="Nama anda">                                                
+                                            </div>
+                                            <div class="form-group">
+                                                <label>No Handphone</label>
+                                                <input type="text" class="form-control" name="no_hp" placeholder="No handphone anda">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Alamat</label>
+                                                <input type="text" class="form-control" name="alamat" placeholder="alamat tinggal anda">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="email" class="form-control" name="email" placeholder="No handphone anda">
                                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                <label>Password</label>
+                                                <input type="password" class="form-control" name="pass" placeholder="Password">
                                             </div>
                                             
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                            <button type="submit" name="simpan" value="simpan"  class="btn btn-primary waves-effect waves-light">Submit</button>
                                         </form>
-                        
+                                            <?php
+                                                include "config/function.php";
+                                                if(isset($_POST['simpan'])) {
+                                                    if(tambahadmin($_POST) > 0 ){
+                                                        echo " 
+                                                       <script>
+                                                            document.location.href = 'form.php?r=sukses';
+                                                        </script>";
+                                                    } else {
+                                                        echo " 
+                                                       <script>
+                                                            document.location.href = 'form.php?r=gagal';
+                                                        </script>";
+                                                    }
+                                                }
+                                            ?>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
                              </div> <!--end size form-->
@@ -115,7 +126,7 @@
                                     echo "<td>$data[email]</td>";
                                     echo "<td>
                                         <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='".$data['id_user']."'>Edit</a>
-                                    
+                                        <a href = 'config/hapusadmin.php?id_user=".$data['id_user']."' class='btn btn-sm btn-danger'>Hapus</a>
                                     </td>
                                     ";
                                     echo "</tr>";

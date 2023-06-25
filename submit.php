@@ -18,11 +18,19 @@ $data = mysqli_query($koneksi,"insert into user (nama,alamat,no_hp,email,pass,le
 //cek kemabli apakah data sudah berhasil masuk ke mysql atau tidak jika tidak akan munculkan alert gagal registrasi
 //kalau berhasil akan pergi kehalaman dalam folder user 
 if($data > 0){
-                        echo'    <script>alert("berhasil");window.location="index.php"</script>';
+    echo "
+                <script>
+                    document.location.href = 'index.php?d=sukses';
+                </script>
+                ";
 
                 }
             else
             {
-                echo'    <script>alert("gagal");window.location="index.php"</script>';
+                echo "
+                <script>
+                    document.location.href = 'index.php?d=gagal';
+                </script>
+                ";
             }
 ?>
