@@ -7,7 +7,7 @@
 			<form role="form" action="config/adminupdate.php" method="post" enctype="multipart/form-data">
 			 <div class="from-group">
                 <label>Id_user </label>
-			 	<input type="text" class="form-control" name="id_user" value="<?php echo $sql['id_user'] ?>" required='required'>
+			 	<input type="text" class="form-control" name="id_user" value="<?php echo $sql['id_user'] ?>" required='required' disabled='disable'>
                  <input type="hidden" name="id_user" value="<?php echo $sql['id_user'] ?>">
 			 </div>
 			 <div class="form-group">
