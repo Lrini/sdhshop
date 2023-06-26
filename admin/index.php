@@ -67,7 +67,7 @@ if (!isset($_SESSION['id'])) {
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="mb-4">
-                                            <h5 class="card-title mb-0">Tingkatan SMP </h5>
+                                            <h5 class="card-title mb-0">Jumlah Tingkatan SMP </h5>
                                         </div>
                                         <div class="row d-flex align-items-center mb-4">
                                             <div class="col-8">
@@ -92,7 +92,7 @@ if (!isset($_SESSION['id'])) {
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="mb-4">
-                                            <h5 class="card-title mb-0">SMA</h5>
+                                            <h5 class="card-title mb-0">Jumlah Tingkat SMA</h5>
                                         </div>
                                         <div class="row d-flex align-items-center mb-4">
                                             <div class="col-8">
