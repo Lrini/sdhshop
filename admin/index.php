@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+include "../koneksi.php";
+if (!isset($_SESSION['id'])) {
+?>
+    <script type="text/javascript">
+        alert('login dulu');
+        window.location = '../index.php';
+    </script>
+<?php
+} else {
+?>
+    <!DOCTYPE html>
+    <html lang="en">
 
     <head>
         <?php include "public/header.php"; ?> <!-- halaman untuk asset css pada halaman-->
         <meta charset="utf-8" />
-        </head>
-   
+    </head>
+
 
     <body>
 
@@ -13,7 +25,7 @@
         <div id="layout-wrapper">
 
             <div class="main-content">
-            <?php include "public/akun.php" ?>
+                <?php include "public/akun.php" ?>
                 <div class="topnav">
                     <div class="container-fluid">
                         <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
@@ -21,42 +33,41 @@
                             <?php include "public/menu.php" ?>
                         </nav>
                     </div>
-                </div>                
+                </div>
                 <div class="page-content">
                     <div class="container-fluid">
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-md-6 col-xl-3">
                                 <div class="card">
-                                        <div class="card-body">
-                                            <div class="mb-4">
-                                                <h5 class="card-title mb-0">Jumlah Tingakatan SD</h5>
+                                    <div class="card-body">
+                                        <div class="mb-4">
+                                            <h5 class="card-title mb-0">Jumlah Tingakatan SD</h5>
+                                        </div>
+                                        <div class="row d-flex align-items-center mb-4">
+                                            <div class="col-8">
+                                                <h2 class="d-flex align-items-center mb-0">
+                                                    $17.21
+                                                </h2>
                                             </div>
-                                            <div class="row d-flex align-items-center mb-4">
-                                                <div class="col-8">
-                                                    <h2 class="d-flex align-items-center mb-0">
-                                                        $17.21
-                                                    </h2>
-                                                </div>
-                                                <div class="col-4 text-right">
-                                                    <span class="text-muted">12.5% <i
-                                                            class="mdi mdi-arrow-up text-success"></i></span>
-                                                </div>
-                                            </div>
-
-                                            <div class="progress shadow-sm" style="height: 5px;">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 57%;">
-                                                </div>
+                                            <div class="col-4 text-right">
+                                                <span class="text-muted">12.5% <i class="mdi mdi-arrow-up text-success"></i></span>
                                             </div>
                                         </div>
-                                        <!--end card body-->
-                                    </div><!-- end card-->
+
+                                        <div class="progress shadow-sm" style="height: 5px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 57%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end card body-->
+                                </div><!-- end card-->
                             </div>
                             <div class="col-md-6 col-xl-3">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="mb-4">
-                                            <h5 class="card-title mb-0">Tingkatan SMP </h5>
+                                            <h5 class="card-title mb-0">Jumlah Tingkatan SMP </h5>
                                         </div>
                                         <div class="row d-flex align-items-center mb-4">
                                             <div class="col-8">
@@ -65,8 +76,7 @@
                                                 </h2>
                                             </div>
                                             <div class="col-4 text-right">
-                                                <span class="text-muted">18.71% <i
-                                                        class="mdi mdi-arrow-down text-danger"></i></span>
+                                                <span class="text-muted">18.71% <i class="mdi mdi-arrow-down text-danger"></i></span>
                                             </div>
                                         </div>
 
@@ -82,7 +92,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="mb-4">
-                                            <h5 class="card-title mb-0">SMA</h5>
+                                            <h5 class="card-title mb-0">Jumlah Tingkat SMA</h5>
                                         </div>
                                         <div class="row d-flex align-items-center mb-4">
                                             <div class="col-8">
@@ -91,8 +101,7 @@
                                                 </h2>
                                             </div>
                                             <div class="col-4 text-right">
-                                                <span class="text-muted">57% <i
-                                                        class="mdi mdi-arrow-up text-success"></i></span>
+                                                <span class="text-muted">57% <i class="mdi mdi-arrow-up text-success"></i></span>
                                             </div>
                                         </div>
 
@@ -118,8 +127,7 @@
                                                 </h2>
                                             </div>
                                             <div class="col-4 text-right">
-                                                <span class="text-muted">57% <i
-                                                        class="mdi mdi-arrow-up text-success"></i></span>
+                                                <span class="text-muted">57% <i class="mdi mdi-arrow-up text-success"></i></span>
                                             </div>
                                         </div>
 
@@ -132,8 +140,8 @@
                                 </div>
                                 <!--end card-->
                             </div> <!-- end col-->
-                        </div>     
-                        <!-- end page title -->                       
+                        </div>
+                        <!-- end page title -->
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->
@@ -164,8 +172,11 @@
 
 
         <!--Halaman foote asset-->
-       <?php include "public/footer.php"; ?>
+        <?php include "public/footer.php"; ?>
 
     </body>
 
-</html>
+    </html>
+<?php
+}
+?>
