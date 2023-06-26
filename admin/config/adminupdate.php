@@ -4,12 +4,12 @@
  	if(editadmin ($_POST) > 0){
  		 echo " 
            <script>
-                document.location.href = '../form.php?r=sukses';
+                document.location.href = '../admin.php?r=sukses';
             </script>";
  	}else{
  		 echo " 
            <script>
-                document.location.href = '../form.php?r=gagal';
+                document.location.href = '../admin.php?r=gagal';
             </script>";
  	}
  }

@@ -11,7 +11,7 @@
                                             <i class="mdi mdi-file"></i>Inputan <div class="arrow-down"></div>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="topnav-components">
-                                            <a href="form.php" class="dropdown-item">Admin</a>
+                                            <a href="admin.php" class="dropdown-item">Admin</a>
                                             <a href="ui-cards.html" class="dropdown-item">Users</a>
                                             <a href="ui-carousel.html" class="dropdown-item">Kelas</a>
                                             <a href="ui-embeds.html" class="dropdown-item">Baju</a>
