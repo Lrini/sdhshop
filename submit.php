@@ -11,11 +11,25 @@ $alamat = $_POST['alamat'];
 $email = $_POST['exampleInputEmail1'];
 $password = $_POST['exampleInputPassword1'];
 
-// Prepare and execute the SQL statement
-$stmt = $conn->prepare("INSERT INTO your_table_name (nama, no_hp, alamat, email, password) VALUES (:nama, :no_hp, :alamat, :email, :password)");
-$stmt->bindParam(':nama', $nama);
-$stmt->bindParam(':no_hp', $no_hp);
-$stmt->bindParam(':alamat', $alamat);
-$stmt->bindParam(':email', $email);
-$stmt->bindParam(':password', $password);
-$stmt->execute();
+$password = md5($pass);
+
+$data = mysqli_query($koneksi,"insert into user (nama,alamat,no_hp,email,pass,level,status) values ('$nama','$alamat','$no_hp','$email','$password','user','pasif')");
+//cek kemabli apakah data sudah berhasil masuk ke mysql atau tidak jika tidak akan munculkan alert gagal registrasi
+//kalau berhasil akan pergi kehalaman dalam folder user 
+if($data > 0){
+    echo "
+                <script>
+                    document.location.href = 'index.php?d=sukses';
+                </script>
+                ";
+
+                }
+            else
+            {
+                echo "
+                <script>
+                    document.location.href = 'index.php?d=gagal';
+                </script>
+                ";
+            }
+?>

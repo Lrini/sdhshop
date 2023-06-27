@@ -225,6 +225,50 @@
     <div class="single-slide slider-height position-relative">
       <div class="container">
         <div class="row">
+          <div class="main-content">
+            <div class="container-fluid">
+            <?php
+                      if(isset($_GET['r'])){
+                        $r = $_GET['r'];
+                        if ($r == 'gagal'){
+                          echo "
+                              <div role='alert' class='alert alert-danger'>
+                                <strong>Username atau password salah !</strong>    
+                              </div>
+                          
+                          ";
+                        } else if($r == 'info'){
+                          echo "
+                              <div role='alert' class='alert alert-info'>
+                                <strong>Silakan sign up terlebih dahulu !</strong>    
+                              </div>
+                          
+                          ";
+                        }
+                      }
+                  ?>
+                  <?php
+                    if(isset($_GET['d'])){
+                      $r = $_GET['d'];
+                      if ($d == 'gagal'){
+                        echo "
+                            <div role='alert' class='alert alert-danger'>
+                              <strong> Gagal register silakan ulangi lagi!</strong>    
+                            </div>
+                        
+                        ";
+                      } else if($d == 'sukses'){
+                        echo "
+                            <div role='alert' class='alert alert-info'>
+                              <strong>Berhasil register. Menunggu konfirmasi via whatsapp dari admin SDH Kupang !</strong>    
+                            </div>
+                        
+                        ";
+                      }
+                    }
+                  ?>
+            </div>
+          </div>   
           <div class="col-xl-5 col-lg-5  col-md-6">
             <div class="slider-description mt-200">
               <h1>Seragam <br> TK </h1>

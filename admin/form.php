@@ -1,13 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+include "../koneksi.php";
+if (!isset($_SESSION['id'])) {
+?>
+    <script type="text/javascript">
+        alert('login dulu');
+        window.location = '../index.php';
+    </script>
+<?php
+} else {
+?>
+    <!DOCTYPE html>
+    <html lang="en">
 
     <head>
         <?php include "public/header.php"; ?> <!-- halaman untuk asset css pada halaman-->
         <meta charset="utf-8" />
         <!--dattables js-->
         <link rel="stylesheet" href="assets/css/jquery.dataTables.css">
-        </head>
-   
+    </head>
+
 
     <body>
 
@@ -15,43 +27,7 @@
         <div id="layout-wrapper">
 
             <div class="main-content">
-
-                <header id="page-topbar">
-                    <div class="navbar-header">
-                        <!-- LOGO -->
-                        <div class="navbar-brand-box d-flex align-items-left">
-                            <a href="index.ejs" class="logo">
-                                <!--<i class="mdi mdi-album"></i> ganti dengan logo SDH -->
-                                <span>
-                                   <!-- Xeloro-->
-                                </span>
-                            </a>
-
-                            <button type="button" class="btn btn-sm mr-2 font-size-16 d-lg-none header-item waves-effect waves-light" data-toggle="collapse" data-target="#topnav-menu-content">
-                                <i class="fa fa-fw fa-bars"></i>
-                            </button>
-                        </div>
-        
-                        <div class="d-flex align-items-center">       
-                            <div class="dropdown d-inline-block ml-2">
-                                <button type="button" class="btn header-item waves-effect waves-light"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-3.jpg"
-                                        alt="Header Avatar">
-                                    <span class="d-none d-sm-inline-block ml-1">Immanuel</span>
-                                    <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                                        <span>Log Out</span>
-                                    </a>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </header>
-
+                <?php include "public/akun.php"; ?>
                 <div class="topnav">
                     <div class="container-fluid">
                         <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
@@ -59,38 +35,86 @@
                             <?php include "public/menu.php" ?>
                         </nav>
                     </div>
-                </div>                
+                </div>
                 <div class="page-content">
                     <div class="container-fluid">
                         <!-- start page title -->
+                        <?php if (isset($_GET['r'])) : ?>
+                            <?php
+                            $r = $_GET['r'];
+                            if ($r == 'sukses') {
+                                $class = 'success';
+                            } else if ($r == 'updated') {
+                                $class = 'info';
+                            } else if ($r == 'gagal') {
+                                $class = 'danger';
+                            } else if ($r == 'added an account') {
+                                $class = 'success';
+                            } else {
+                                $class = 'hide';
+                            }
+                            ?>
+                            <div role="alert" class="alert alert-<?php echo $class ?> ">
+
+                                <strong> <?php echo $r; ?>!</strong>
+                            </div>
+                        <?php endif; ?>
                         <div class="row">
-                        <div class="col-xl-6">
-                        <div class="card">
+                            <div class="col-xl-6">
+                                <div class="card">
                                     <div class="card-body">
-                        
+
                                         <h4 class="card-title">Form Admin</h4>
                                         <p class="card-subtitle mb-4">Halaman untuk input admin yang menggunakan halaman admin ini</p>
-    
-                                        <form>
+
+                                        <form action="" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <label>Nama admin</label>
+                                                <input type="text" class="form-control" name="nama" placeholder="Nama anda">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>No Handphone</label>
+                                                <input type="text" class="form-control" name="no_hp" placeholder="No handphone anda">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Alamat</label>
+                                                <input type="text" class="form-control" name="alamat" placeholder="alamat tinggal anda">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="email" class="form-control" name="email" placeholder="No handphone anda">
                                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                <label>Password</label>
+                                                <input type="password" class="form-control" name="pass" placeholder="Password">
                                             </div>
-                                            
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+
+                                            <button type="submit" name="simpan" value="simpan" class="btn btn-primary waves-effect waves-light">Submit</button>
                                         </form>
-                        
+                                        <?php
+                                        include "config/function.php";
+                                        if (isset($_POST['simpan'])) {
+                                            if (tambahadmin($_POST) > 0) {
+                                                echo " 
+                                                       <script>
+                                                            document.location.href = 'form.php?r=sukses';
+                                                        </script>";
+                                            } else {
+                                                echo " 
+                                                       <script>
+                                                            document.location.href = 'form.php?r=gagal';
+                                                        </script>";
+                                            }
+                                        }
+                                        ?>
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
-                             </div> <!--end size form-->
-                        </div>     
-                       <div class="card">
+                            </div> <!--end size form-->
+                        </div>
+                        <div class="card">
                             <div class="card-body">
+<<<<<<< HEAD
                             <table class="table dt-responsive nowrap" id="contoh"  >
                                 <thead>
                                     <tr>
@@ -122,10 +146,62 @@
                                 ?>
                                 </tbody>
                             </table>
+=======
+                                <table class="table dt-responsive nowrap" id="contoh">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Admin</th>
+                                            <th>No Handphone</th>
+                                            <th>Email</th>
+                                            <th>Pilihan</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <?php
+                                        include("../koneksi.php");
+                                        $no = 1;
+                                        $query = mysqli_query($koneksi, "SELECT * FROM user where level ='admin'");
+                                        while ($data = mysqli_fetch_array($query)) {
+                                            echo "<tr>";
+                                            echo "<td>$no";
+                                            echo "<td>$data[nama]</td>";
+                                            echo "<td>$data[no_hp]</td>";
+                                            echo "<td>$data[email]</td>";
+                                            echo "<td>
+                                        <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='" . $data['id_user'] . "'>Edit</a>
+                                        <a href = 'config/hapusadmin.php?id_user=" . $data['id_user'] . "' class='btn btn-sm btn-danger'>Hapus</a>
+                                    </td>
+                                    ";
+                                            echo "</tr>";
+                                            $no++;
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+>>>>>>> origin/dev
                             </div>
-                       </div>
-                        <!-- end page title -->                       
+                        </div>
+                        <!-- end page title -->
                     </div> <!-- container-fluid -->
+
+                    <div id="editData5" class="modal fade">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Form Edit admin</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="info_update5">
+                                    <?php include "./modal/admin.php" ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- End Page-content -->
 
@@ -152,15 +228,38 @@
 
         </div>
         <!-- END layout-wrapper -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script><!-- -->
         <script src="assets/js/jquery.dataTables.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(document).on('click', '.edit_data5', function() {
+                    var edit_id5 = $(this).attr('id');
+                    $.ajax({
+                        url: "./modal/admin.php",
+                        type: "post",
+                        data: {
+                            edit_id5: edit_id5
+                        },
+                        success: function(data) {
+                            $("#info_update5").html(data);
+                            jQuery.noConflict();
+                            $("#editData5").modal('show');
+                        }
+                    });
+                });
+            });
+        </script>
         <script>
-            $(document).ready(function(){
-             $('#contoh').DataTable();
-                                        });
+            $(document).ready(function() {
+                $('#contoh').DataTable();
+            });
         </script>
         <!--Halaman foote asset-->
-       <?php include "public/footer.php"; ?>
+        <?php include "public/footer.php"; ?>
     </body>
 
-</html>
+    </html>
+<?php
+}
+?>
