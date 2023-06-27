@@ -8,8 +8,9 @@ include 'koneksi.php';
 // menangkap data yang dikirim dari form
 $nama = $_POST['nama'];
 $alamat = $_POST['alamat'];
-$email = $_POST['exampleInputEmail1'];
-$password = $_POST['exampleInputPassword1'];
+$no_hp = $_POST['no_hp'];
+$email = $_POST['email'];
+$pass = $_POST['pass'];
 
 $password = md5($pass);
 
