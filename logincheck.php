@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "koneksi.php";
- 
 //ambil email dan password dari halaman index
 $email = $_POST['email'];
 $pass =md5($_POST['pass']);
