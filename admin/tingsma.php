@@ -64,8 +64,8 @@ if (!isset($_SESSION['id'])) {
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4 class="card-title">Form user untuk tingkat SD </h4>
-                                        <p class="card-subtitle mb-4">Halaman untuk input user SD yang menggunakan halaman user ini</p>
+                                        <h4 class="card-title">Form User untuk tingkat SMA</h4>
+                                        <p class="card-subtitle mb-4">Halaman untuk input user SMA yang menggunakan halaman user ini</p>
 
                                         <form action="" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
@@ -110,15 +110,15 @@ if (!isset($_SESSION['id'])) {
                                         <?php
                                         include "config/function.php";
                                         if (isset($_POST['simpan'])) {
-                                            if (tambahuser($_POST) > 0) {
+                                            if (tambahsma($_POST) > 0) {
                                                 echo " 
                                                        <script>
-                                                            document.location.href = 'tingsd.php?r=sukses';
+                                                            document.location.href = 'tingsma.php?r=sukses';
                                                         </script>";
                                             } else {
                                                 echo " 
                                                        <script>
-                                                            document.location.href = 'tingsd.php?r=gagal';
+                                                            document.location.href = 'tingsma.php?r=gagal';
                                                         </script>";
                                             }
                                         }
@@ -146,7 +146,7 @@ if (!isset($_SESSION['id'])) {
                                         <?php
                                         include("../koneksi.php");
                                         $no = 1;
-                                        $query = mysqli_query($koneksi, "select user.id_user,user.status as ada ,user.konfirm,user.nama,user.no_hp,kelas.nama_kelas FROM user INNER JOIN kelas WHERE user.id_kelas = kelas.id_kelas and kelas.status='SD'");
+                                        $query = mysqli_query($koneksi, "select user.id_user,user.status as ada ,user.konfirm,user.nama,user.no_hp,kelas.nama_kelas FROM user INNER JOIN kelas WHERE user.id_kelas = kelas.id_kelas and kelas.status='SMP'");
                                         while ($data = mysqli_fetch_array($query)) {
                                             echo "<tr>";
                                             echo "<td>$no";
@@ -157,7 +157,7 @@ if (!isset($_SESSION['id'])) {
                                             echo "<td>$data[ada]</td>";
                                             echo "<td>
                                         <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='" . $data['id_user'] . "'>Edit</a>
-                                        <a href = 'config/hapussd.php?id_user=" . $data['id_user'] . "' class='btn btn-sm btn-danger'>Hapus</a>
+                                        <a href = 'config/hapussma.php?id_user=" . $data['id_user'] . "' class='btn btn-sm btn-danger'>Hapus</a>
                                     </td>
                                     ";
                                             echo "</tr>";
@@ -181,7 +181,7 @@ if (!isset($_SESSION['id'])) {
                                     </button>
                                 </div>
                                 <div class="modal-body" id="info_update5">
-                                    <?php include "./modal/tingsd.php" ?>
+                                    <?php include "./modal/tingsmp.php" ?>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +221,7 @@ if (!isset($_SESSION['id'])) {
                 $(document).on('click', '.edit_data5', function() {
                     var edit_id5 = $(this).attr('id');
                     $.ajax({
-                        url: "./modal/tingsd.php",
+                        url: "./modal/tingsma.php",
                         type: "post",
                         data: {
                             edit_id5: edit_id5
