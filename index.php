@@ -43,7 +43,7 @@
   <!-- =============Preloader Starts=============-->
   <div class="loader">
     <div class="face face-1">
-      <div class="circle"></div>
+      <div class="circle"></div>git p
     </div>
     <div class="face face-2">
       <div class="circle"></div>
@@ -500,7 +500,10 @@
           <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
             <div class="footer-widget mb-30 mb-lg-0 pt-15">
               <div class="logo pb-30">
-                <!--<a href="index.php"><img src="img/logo/logo-white.png" alt="logo"></a>--> logo sekolah
+              <a href="index.php" style="display: inline-block;">
+  <img src="admin\assets\images\sdhkupang.png" alt="logo" style="width: 100px; height: auto;">
+</a>
+
               </div>
               <div class="footer-info">
                 <ul>

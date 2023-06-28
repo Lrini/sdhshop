@@ -13,7 +13,7 @@
                                         <div class="dropdown-menu" aria-labelledby="topnav-components">
                                             <a href="form.php" class="dropdown-item">Admin</a>
                                             <a href="ui-cards.html" class="dropdown-item">Users</a>
-                                            <a href="ui-carousel.html" class="dropdown-item">Kelas</a>
+                                            <a href="kelas.php" class="dropdown-item">Kelas</a>
                                             <a href="ui-embeds.html" class="dropdown-item">Baju</a>
                                             <a href="ui-general.html" class="dropdown-item">Tambahan</a>
                                         </div>
