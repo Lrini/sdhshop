@@ -89,7 +89,10 @@ if (!isset($_SESSION['id'])) {
                                                 <label>Password</label>
                                                 <input type="password" class="form-control" name="pass" placeholder="Password">
                                             </div>
-
+                                            <div class="form-group">
+                                                <label>Confirm Password</label>
+                                                <input type="text" class="form-control" name="konfirm" placeholder="Konfirmasi password">
+                                            </div>
                                             <button type="submit" name="simpan" value="simpan" class="btn btn-primary waves-effect waves-light">Submit</button>
                                         </form>
                                         <?php
@@ -121,6 +124,7 @@ if (!isset($_SESSION['id'])) {
                                             <th>Nama Admin</th>
                                             <th>No Handphone</th>
                                             <th>Email</th>
+                                            <th>Pasword</th>
                                             <th>Pilihan</th>
                                         </tr>
                                     </thead>
@@ -136,6 +140,7 @@ if (!isset($_SESSION['id'])) {
                                             echo "<td>$data[nama]</td>";
                                             echo "<td>$data[no_hp]</td>";
                                             echo "<td>$data[email]</td>";
+                                            echo "<td>$data[konfirm]</td>";
                                             echo "<td>
                                         <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='" . $data['id_user'] . "'>Edit</a>
                                         <a href = 'config/hapusadmin.php?id_user=" . $data['id_user'] . "' class='btn btn-sm btn-danger'>Hapus</a>

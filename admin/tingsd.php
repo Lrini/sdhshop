@@ -113,12 +113,12 @@ if (!isset($_SESSION['id'])) {
                                             if (tambahuser($_POST) > 0) {
                                                 echo " 
                                                        <script>
-                                                            document.location.href = 'user.php?r=sukses';
+                                                            document.location.href = 'tingsd.php?r=sukses';
                                                         </script>";
                                             } else {
                                                 echo " 
                                                        <script>
-                                                            document.location.href = 'user.php?r=gagal';
+                                                            document.location.href = 'tingsd.php?r=gagal';
                                                         </script>";
                                             }
                                         }
@@ -136,6 +136,8 @@ if (!isset($_SESSION['id'])) {
                                             <th>Nama siswa</th>
                                             <th>No Handphone</th>
                                             <th>Kelas</th>
+                                            <th>Password</th>
+                                            <th>Status</th>
                                             <th>Pilihan</th>
                                         </tr>
                                     </thead>
@@ -144,16 +146,18 @@ if (!isset($_SESSION['id'])) {
                                         <?php
                                         include("../koneksi.php");
                                         $no = 1;
-                                        $query = mysqli_query($koneksi, "select user.id_user,user.nama,user.no_hp,kelas.nama_kelas FROM user INNER JOIN kelas WHERE user.id_kelas = kelas.id_kelas and kelas.status='SD'");
+                                        $query = mysqli_query($koneksi, "select user.id_user,user.status as ada ,user.konfirm,user.nama,user.no_hp,kelas.nama_kelas FROM user INNER JOIN kelas WHERE user.id_kelas = kelas.id_kelas and kelas.status='SD'");
                                         while ($data = mysqli_fetch_array($query)) {
                                             echo "<tr>";
                                             echo "<td>$no";
                                             echo "<td>$data[nama]</td>";
                                             echo "<td>$data[no_hp]</td>";
                                             echo "<td>$data[nama_kelas]</td>";
+                                            echo "<td>$data[konfirm]</td>";
+                                            echo "<td>$data[ada]</td>";
                                             echo "<td>
                                         <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='" . $data['id_user'] . "'>Edit</a>
-                                        <a href = 'config/hapusadmin.php?id_user=" . $data['id_user'] . "' class='btn btn-sm btn-danger'>Hapus</a>
+                                        <a href = 'config/hapussd.php?id_user=" . $data['id_user'] . "' class='btn btn-sm btn-danger'>Hapus</a>
                                     </td>
                                     ";
                                             echo "</tr>";
@@ -171,13 +175,13 @@ if (!isset($_SESSION['id'])) {
                         <div class="modal-dialog modal-md">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Form Edit admin</h5>
+                                    <h5 class="modal-title">Form siswa tingkat sekolah dasar</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body" id="info_update5">
-                                    <?php include "./modal/admin.php" ?>
+                                    <?php include "./modal/tingsd.php" ?>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +221,7 @@ if (!isset($_SESSION['id'])) {
                 $(document).on('click', '.edit_data5', function() {
                     var edit_id5 = $(this).attr('id');
                     $.ajax({
-                        url: "./modal/admin.php",
+                        url: "./modal/tingsd.php",
                         type: "post",
                         data: {
                             edit_id5: edit_id5

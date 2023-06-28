@@ -18,7 +18,7 @@
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="topnav-auth">
                                                     <a href="tingsd.php" class="dropdown-item">Tingkat SD</a>
-                                                    <a href="tingsmp.php" class="dropdown-item">Tingkat SMA</a>
+                                                    <a href="tingsmp.php" class="dropdown-item">Tingkat SMP</a>
                                                     <a href="tingsma.php" class="dropdown-item">Tingkat SMA</a>
                                                 </div>
                                             </div>                                                                                                                                 

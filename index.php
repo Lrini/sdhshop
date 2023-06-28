@@ -190,6 +190,10 @@
               <label>Password</label>
               <input type="password" class="form-control" name="pass" placeholder="Password">
             </div>
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input type="text" class="form-control" name="konfirm" placeholder="Konfirmasi password">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
