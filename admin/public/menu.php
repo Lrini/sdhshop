@@ -22,7 +22,7 @@
                                                     <a href="tingsma.php" class="dropdown-item">Tingkat SMA</a>
                                                 </div>
                                             </div>                                                                                                                                 
-                                            <a href="ui-carousel.html" class="dropdown-item">Kelas</a>
+                                            <a href="kelas.php" class="dropdown-item">Kelas</a>
                                             <a href="ui-embeds.html" class="dropdown-item">Baju</a>
                                             <a href="ui-general.html" class="dropdown-item">Tambahan</a>
                                         </div>
