@@ -1,15 +1,15 @@
 <?php
  include "function.php";
  if(isset($_POST['simpan'])){
- 	if(editadmin ($_POST) > 0){
+ 	if(editkelas ($_POST) > 0){
  		 echo " 
            <script>
-                document.location.href = '../admin.php?r=sukses';
+                document.location.href = '../kelas.php?r=sukses';
             </script>";
  	}else{
  		 echo " 
            <script>
-                document.location.href = '../admin.php?r=gagal';
+                document.location.href = '../kelas.php?r=gagal';
             </script>";
  	}
  }
