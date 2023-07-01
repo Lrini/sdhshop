@@ -64,46 +64,41 @@ if (!isset($_SESSION['id'])) {
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4 class="card-title">Form Admin</h4>
-                                        <p class="card-subtitle mb-4">Halaman untuk input admin yang menggunakan halaman admin ini</p>
+                                        <h4 class="card-title">Form untuk kelas</h4>
+                                        <p class="card-subtitle mb-4">Halaman untuk input kelas. Sebelumnya harus dipastikan sebelumnya</p>
 
                                         <form action="" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <label>Nama admin</label>
-                                                <input type="text" class="form-control" name="nama" placeholder="Nama anda">
+                                                <label>Nama kelas</label>
+                                                <input type="text" class="form-control" name="nama_kelas" placeholder="Nama kelas">
                                             </div>
                                             <div class="form-group">
-                                                <label>No Handphone</label>
-                                                <input type="text" class="form-control" name="no_hp" placeholder="No handphone anda">
+                                                <label>Walikelas</label>
+                                                <input type="text" class="form-control" name="walikelas" placeholder="Walikelas">
                                             </div>
                                             <div class="form-group">
-                                                <label>Alamat</label>
-                                                <input type="text" class="form-control" name="alamat" placeholder="alamat tinggal anda">
+                                                <label>Tingkat</label>
+                                                <select name="status" id="status" class="form-control" type="text">
+                                                    <option>Tingkat</option>
+                                                        <option value="SD">SD</option>
+                                                        <option value="SMP">SMP</option>
+                                                        <option value="SMA">SMA</option>
+                                                </select>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="email" class="form-control" name="email" placeholder="No handphone anda">
-                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" class="form-control" name="pass" placeholder="Password">
-                                            </div>
-
                                             <button type="submit" name="simpan" value="simpan" class="btn btn-primary waves-effect waves-light">Submit</button>
                                         </form>
                                         <?php
                                         include "config/function.php";
                                         if (isset($_POST['simpan'])) {
-                                            if (tambahadmin($_POST) > 0) {
+                                            if (tambahkelas($_POST) > 0) {
                                                 echo " 
                                                        <script>
-                                                            document.location.href = 'form.php?r=sukses';
+                                                            document.location.href = 'kelas.php?r=sukses';
                                                         </script>";
                                             } else {
                                                 echo " 
                                                        <script>
-                                                            document.location.href = 'form.php?r=gagal';
+                                                            document.location.href = 'kelas.php?r=gagal';
                                                         </script>";
                                             }
                                         }
@@ -118,9 +113,9 @@ if (!isset($_SESSION['id'])) {
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Admin</th>
-                                            <th>No Handphone</th>
-                                            <th>Email</th>
+                                            <th>Nama kelas</th>
+                                            <th>Walikelas</th>
+                                            <th>Tingkat</th>
                                             <th>Pilihan</th>
                                         </tr>
                                     </thead>
@@ -129,16 +124,16 @@ if (!isset($_SESSION['id'])) {
                                         <?php
                                         include("../koneksi.php");
                                         $no = 1;
-                                        $query = mysqli_query($koneksi, "SELECT * FROM user where level ='admin'");
+                                        $query = mysqli_query($koneksi, "select * from kelas");
                                         while ($data = mysqli_fetch_array($query)) {
                                             echo "<tr>";
                                             echo "<td>$no";
-                                            echo "<td>$data[nama]</td>";
-                                            echo "<td>$data[no_hp]</td>";
-                                            echo "<td>$data[email]</td>";
+                                            echo "<td>$data[nama_kelas]</td>";
+                                            echo "<td>$data[walikelas]</td>";
+                                            echo "<td>$data[status]</td>";
                                             echo "<td>
-                                        <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='" . $data['id_user'] . "'>Edit</a>
-                                        <a href = 'config/hapusadmin.php?id_user=" . $data['id_user'] . "' class='btn btn-sm btn-danger'>Hapus</a>
+                                        <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='" . $data['id_kelas'] . "'>Edit</a>
+                                        <a href = 'config/hapuskelas.php?id_user=" . $data['id_kelas'] . "' class='btn btn-sm btn-danger'>Hapus</a>
                                     </td>
                                     ";
                                             echo "</tr>";
@@ -156,13 +151,13 @@ if (!isset($_SESSION['id'])) {
                         <div class="modal-dialog modal-md">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Form Edit admin</h5>
+                                    <h5 class="modal-title">Form siswa tingkat sekolah dasar</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body" id="info_update5">
-                                    <?php include "./modal/admin.php" ?>
+                                    <?php include "./modal/kelas.php" ?>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +197,7 @@ if (!isset($_SESSION['id'])) {
                 $(document).on('click', '.edit_data5', function() {
                     var edit_id5 = $(this).attr('id');
                     $.ajax({
-                        url: "./modal/admin.php",
+                        url: "./modal/kelas.php",
                         type: "post",
                         data: {
                             edit_id5: edit_id5

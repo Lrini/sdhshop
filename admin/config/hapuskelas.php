@@ -1,15 +1,15 @@
 <?php
  include "function.php";
  $id_user = $_GET ["id_user"];
-if(hapusadmin ($id_user) > 0){
+if(hapuskelas ($id_user) > 0){
 				 echo " 
 			           <script>
-			                document.location.href = '../admin.php?r=sukses';
+			                document.location.href = '../kelas.php?r=sukses';
 			            </script>";
 			}else{
 				 echo " 
 			           <script>
-			                document.location.href = '../admin.php.php?r=gagal';
+			                document.location.href = '../kelas.php.php?r=gagal';
 			            </script>";
 			}
  ?>
