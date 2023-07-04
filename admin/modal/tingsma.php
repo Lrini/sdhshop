@@ -11,7 +11,7 @@ if (isset($_POST['edit_id5'])) {
                 <input type="hidden" name="id_user" value="<?php echo $sql['id_user'] ?>">
             </div>
             <div class="form-group">
-                <label> Nama admin</label>
+                <label> Nama siswa</label>
                 <input type="text" class="form-control" name="nama" value="<?php echo $sql['nama'] ?>" placeholder="Nama" />
             </div>
             <div class="form-group">

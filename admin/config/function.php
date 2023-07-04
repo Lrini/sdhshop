@@ -138,7 +138,7 @@ function tambahbaju(){
         return false;
     }
 
-    $sql = mysqli_query($kon,"insert into baju (nama_baju,id_kelas,jmlh,status) values ('$nama','$kelas','$jmlh','$status')");
+    $sql = mysqli_query($kon,"insert into baju (nama_baju,gambar,id_kelas,jmlh,status) values ('$nama','$gambar','$kelas','$jmlh','$status')");
     return mysqli_affected_rows($kon);
 }
 

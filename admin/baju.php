@@ -100,7 +100,7 @@ if (!isset($_SESSION['id'])) {
                                             <div class="form-group">
                                                 <label>Status</label>
                                                 <select name="status" id="status" class="form-control" type="text">
-                                                    <option>Tingkat</option>
+                                                    <option>Status</option>
                                                     <option value="aktif">Aktif</option>
                                                     <option value="pasif">Pasif</option>
 
@@ -134,9 +134,9 @@ if (!isset($_SESSION['id'])) {
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama kelas</th>
-                                            <th>Walikelas</th>
-                                            <th>Tingkat</th>
+                                            <th>Nama Baju</th>
+                                            <th>kelas</th>
+                                            <th>Jumlah barang</th>
                                             <th>Pilihan</th>
                                         </tr>
                                     </thead>
@@ -145,16 +145,16 @@ if (!isset($_SESSION['id'])) {
                                         <?php
                                         include("../koneksi.php");
                                         $no = 1;
-                                        $query = mysqli_query($koneksi, "select * from kelas");
+                                        $query = mysqli_query($koneksi, "select baju.id_baju, baju.nama_baju,baju.jmlh,kelas.nama_kelas FROM baju INNER JOIN kelas where baju.id_kelas = kelas.id_kelas");
                                         while ($data = mysqli_fetch_array($query)) {
                                             echo "<tr>";
                                             echo "<td>$no";
+                                            echo "<td>$data[nama_baju]</td>";
                                             echo "<td>$data[nama_kelas]</td>";
-                                            echo "<td>$data[walikelas]</td>";
-                                            echo "<td>$data[status]</td>";
+                                            echo "<td>$data[jmlh]</td>";
                                             echo "<td>
-                                        <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='" . $data['id_kelas'] . "'>Edit</a>
-                                        <a href = 'config/hapuskelas.php?id_user=" . $data['id_kelas'] . "' class='btn btn-sm btn-danger'>Hapus</a>
+                                        <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='" . $data['id_baju'] . "'>Edit</a>
+                                        <a href = 'config/hapuskelas.php?id_user=" . $data['id_baju'] . "' class='btn btn-sm btn-danger'>Hapus</a>
                                     </td>
                                     ";
                                             echo "</tr>";
@@ -172,13 +172,13 @@ if (!isset($_SESSION['id'])) {
                         <div class="modal-dialog modal-md">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Form siswa tingkat sekolah dasar</h5>
+                                    <h5 class="modal-title">Form Inputan Baju</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body" id="info_update5">
-                                    <?php include "./modal/kelas.php" ?>
+                                    <?php include "./modal/baju.php" ?>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +218,7 @@ if (!isset($_SESSION['id'])) {
                 $(document).on('click', '.edit_data5', function() {
                     var edit_id5 = $(this).attr('id');
                     $.ajax({
-                        url: "./modal/kelas.php",
+                        url: "./modal/baju.php",
                         type: "post",
                         data: {
                             edit_id5: edit_id5
