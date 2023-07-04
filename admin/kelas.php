@@ -50,24 +50,42 @@ $nama = isset($_SESSION['name']) ? $_SESSION['name'] : '';
             return false;
         }
     }
-
-    function updateKelas($id, $namaKelas, $waliKelas)
+// Fungsi untuk mengupdate kelas dalam database
+function updateKelas($idKelas, $namaKelas, $waliKelas)
 {
-    global $koneksi;
-    $sql = "UPDATE kelas SET nama_kelas='$namaKelas', walikelas='$waliKelas' WHERE id_kelas='$id'";
-    if (mysqli_query($koneksi, $sql)) {
-        return true;
-    } else {
-        return false;
-    }
+  $conn = connect();
+
+  $idKelas = $conn->real_escape_string($idKelas);
+  $namaKelas = $conn->real_escape_string($namaKelas);
+  $waliKelas = $conn->real_escape_string($waliKelas);
+
+  $sql = "UPDATE kelas SET nama_kelas='$namaKelas', walikelas='$waliKelas' WHERE id_kelas='$idKelas'";
+
+  if ($conn->query($sql) === TRUE) {
+    echo "<script>alert('Kelas berhasil diupdate.');</script>";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+  $conn->close();
 }
 
-function deleteKelas($kelas_id)
+// Fungsi untuk menghapus kelas dari database
+function hapusKelas($idKelas)
 {
-    global $koneksi;
-    $query = "DELETE FROM kelas WHERE id_kelas = '$kelas_id'";
-    $result = mysqli_query($koneksi, $query);
-    return $result;
+  $conn = connect();
+
+  $idKelas = $conn->real_escape_string($idKelas);
+
+  $sql = "DELETE FROM kelas WHERE id_kelas='$idKelas'";
+
+  if ($conn->query($sql) === TRUE) {
+    echo "<script>alert('Kelas berhasil dihapus.');</script>";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+  $conn->close();
 }
 
 
@@ -85,49 +103,25 @@ function deleteKelas($kelas_id)
     }
 
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
-        $kelasId = $_POST['id_kelas'];
-        $namaKelas = $_POST['nama_kelas'];
-        $waliKelas = $_POST['wali_kelas'];
-    
-        try {
-            $pdo = new PDO("mysql:host=localhost;dbname=sdhshop", "root", "");
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-            // Proses update data kelas
-            $stmt = $pdo->prepare("UPDATE kelas SET nama_kelas = :namaKelas, walikelas = :waliKelas WHERE id_kelas = :kelasId");
-            $stmt->bindParam(':namaKelas', $namaKelas);
-            $stmt->bindParam(':waliKelas', $waliKelas);
-            $stmt->bindParam(':kelasId', $kelasId);
-    
-            if ($stmt->execute()) {
-                echo "Kelas berhasil diperbarui!<br>";
-                echo "ID Kelas: " . $kelasId . "<br>";
-                echo "Nama Kelas: " . $namaKelas . "<br>";
-                echo "Wali Kelas: " . $waliKelas . "<br><br>";
-            } else {
-                echo "Error: Gagal memperbarui kelas.<br>";
-            }
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-            echo "<br>Error Info: ";
-            print_r($stmt->errorInfo());
-        }
-    }
-    
+  // Memproses inputan update kelas
+  if (isset($_POST['update'])) {
+    $idKelas = $_POST['id_kelas'];
+    $namaKelas = $_POST['nama_kelas'];
+    $waliKelas = $_POST['wali_kelas'];
 
-    // Proses hapus kelas
-if (isset($_POST['delete'])) {
-    $kelas_id = $_POST['id_kelas'];
-    $result = deleteKelas($kelas_id);
-    if ($result) {
-        echo "Kelas berhasil dihapus!";
+    if ($namaKelas != '' && $waliKelas != '') {
+      updateKelas($idKelas, $namaKelas, $waliKelas);
     } else {
-        echo "Gagal menghapus kelas.";
+      echo "<script>alert('Harap isi semua field.');</script>";
     }
-}
+  }
 
-    ?>
+  // Memproses inputan hapus kelas
+  if (isset($_POST['hapus'])) {
+    $idKelas = $_POST['id_kelas'];
+    hapusKelas($idKelas);
+  }
+  ?>
 
     <div class="container">
         <h2>Data Kelas</h2>
