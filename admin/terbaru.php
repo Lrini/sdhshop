@@ -15,92 +15,12 @@ if (!isset($_SESSION['id'])) {
     <title>Form Kelas</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/css/jquery.dataTables.css">
-</head>
-
-<body>
-    <div id="layout-wrapper">
-
-        <div class="main-content">
-            <?php include "public/header.php"; ?>
-            <?php include "public/akun.php"; ?>
-
-            <div class="topnav">
-                <div class="container-fluid">
-                    <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
-                        <?php include "public/menu.php"; ?>
-                    </nav>
-                </div>
-            </div>
-
-            <div class="page-content">
-                <div class="container-fluid">
-                    <h2>Management Kelas</h2>
-
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">
-                        Tambah Kelas
-                    </button>
-
-                    <table class="table dt-responsive nowrap" id="kelasTable">
-                        <thead>
-                            <tr>
-                                <th>ID Kelas</th>
-                                <th>Nama Kelas</th>
-                                <th>Wali Kelas</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $query = mysqli_query($koneksi, "SELECT * FROM kelas");
-                            while ($data = mysqli_fetch_array($query)) {
-                            ?>
-                                <tr>
-                                    <td><?php echo $data['id_kelas']; ?></td>
-                                    <td><?php echo $data['nama_kelas']; ?></td>
-                                    <td><?php echo $data['walikelas']; ?></td>
-                                    <td>
-                                        <a href="#" class="btn btn-primary edit-data" data-id="<?php echo $data['id_kelas']; ?>">Edit</a>
-                                        <a href="#" class="btn btn-danger hapus-data" data-id="<?php echo $data['id_kelas']; ?>">Hapus</a>
-                                    </td>
-                                </tr>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-
-                    <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="tambahModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="tambahModalLabel">Tambah Kelas</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="formTambahKelas" method="POST">
-                                        <div class="form-group">
-                                            <label for="nama_kelas">Nama Kelas</label>
-                                            <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Masukkan Nama Kelas" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="wali_kelas">Wali Kelas</label>
-                                            <input type="text" class="form-control" id="wali_kelas" name="wali_kelas" placeholder="Masukkan Nama Wali Kelas" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Tambah</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <?php include "public/footer.php"; ?>
-        </div>
-    </div>
-
+    <style>
+        /* Gaya CSS tambahan */
+        .btn {
+            margin-right: 5px;
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/js/jquery.dataTables.js"></script>
     <script>
@@ -121,7 +41,12 @@ if (!isset($_SESSION['id'])) {
                     },
                     dataType: 'json',
                     success: function(data) {
-                        // Logika untuk menampilkan data dalam modal edit
+                        // Isi nilai input dalam modal edit dengan data yang diterima
+                        $('#editModalLabel').text('Edit Kelas');
+                        $('#edit_id_kelas').val(data.id_kelas);
+                        $('#edit_nama_kelas').val(data.nama_kelas);
+                        $('#edit_wali_kelas').val(data.walikelas);
+                        $('#editModal').modal('show');
                     },
                     error: function(xhr, status, error) {
                         console.log(xhr.responseText);
@@ -171,6 +96,119 @@ if (!isset($_SESSION['id'])) {
             });
         });
     </script>
+</head>
+
+<body>
+    <div id="layout-wrapper">
+        <div class="main-content">
+            <?php include "public/header.php"; ?>
+            <?php include "public/akun.php"; ?>
+
+            <div class="topnav">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+                        <?php include "public/menu.php"; ?>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="container-fluid">
+                    <h2>Form Kelas</h2>
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahModal">
+                        Tambah Kelas
+                    </button>
+
+                    <table class="table dt-responsive nowrap" id="kelasTable">
+                        <thead>
+                            <tr>
+                                <th>ID Kelas</th>
+                                <th>Nama Kelas</th>
+                                <th>Wali Kelas</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $query = mysqli_query($koneksi, "SELECT * FROM kelas");
+                            while ($data = mysqli_fetch_array($query)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $data['id_kelas']; ?></td>
+                                    <td><?php echo $data['nama_kelas']; ?></td>
+                                    <td><?php echo $data['walikelas']; ?></td>
+                                    <td>
+                                    <button type="button" class="btn btn-primary edit-data" data-id="<?php echo $data['id_kelas']; ?>" data-toggle="modal" data-target="#editModal">Edit</button>
+
+                                        <a href="#" class="btn btn-danger hapus-data" data-id="<?php echo $data['id_kelas']; ?>">Hapus</a>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
+                    <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="tambahModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="tambahModalLabel">Tambah Kelas</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="formTambahKelas" method="POST">
+                                        <div class="form-group">
+                                            <label for="nama_kelas">Nama Kelas</label>
+                                            <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Masukkan Nama Kelas" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="wali_kelas">Wali Kelas</label>
+                                            <input type="text" class="form-control" id="wali_kelas" name="wali_kelas" placeholder="Masukkan Nama Wali Kelas" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Tambah</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">Edit Kelas</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="formEditKelas" method="POST">
+                                        <input type="hidden" id="edit_id_kelas" name="edit_id_kelas">
+                                        <div class="form-group">
+                                            <label for="edit_nama_kelas">Nama Kelas</label>
+                                            <input type="text" class="form-control" id="edit_nama_kelas" name="edit_nama_kelas" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="edit_wali_kelas">Wali Kelas</label>
+                                            <input type="text" class="form-control" id="edit_wali_kelas" name="edit_wali_kelas" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <?php include "public/footer.php"; ?>
+        </div>
+    </div>
 </body>
 
 </html>
