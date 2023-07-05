@@ -94,6 +94,28 @@ if (!isset($_SESSION['id'])) {
                     }
                 });
             });
+
+            $('#formEditKelas').submit(function(e) {
+                e.preventDefault();
+                var form = $(this);
+
+                // Lakukan aksi update data melalui AJAX
+                $.ajax({
+                    url: 'process.php',
+                    method: 'POST',
+                    data: form.serialize(),
+                    success: function(response) {
+                        // Tampilkan pesan sukses atau error
+                        alert(response);
+
+                        // Refresh halaman atau perbarui baris tabel dengan data yang diperbarui
+                        window.location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
         });
     </script>
 </head>
@@ -139,8 +161,7 @@ if (!isset($_SESSION['id'])) {
                                     <td><?php echo $data['nama_kelas']; ?></td>
                                     <td><?php echo $data['walikelas']; ?></td>
                                     <td>
-                                    <button type="button" class="btn btn-primary edit-data" data-id="<?php echo $data['id_kelas']; ?>" data-toggle="modal" data-target="#editModal">Edit</button>
-
+                                        <button type="button" class="btn btn-primary edit-data" data-id="<?php echo $data['id_kelas']; ?>" data-toggle="modal" data-target="#editModal">Edit</button>
                                         <a href="#" class="btn btn-danger hapus-data" data-id="<?php echo $data['id_kelas']; ?>">Hapus</a>
                                     </td>
                                 </tr>
@@ -190,19 +211,18 @@ if (!isset($_SESSION['id'])) {
                                         <input type="hidden" id="edit_id_kelas" name="edit_id_kelas">
                                         <div class="form-group">
                                             <label for="edit_nama_kelas">Nama Kelas</label>
-                                            <input type="text" class="form-control" id="edit_nama_kelas" name="edit_nama_kelas" required>
+                                            <input type="text" class="form-control" id="edit_nama_kelas" name="edit_nama_kelas" placeholder="Masukkan Nama Kelas" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="edit_wali_kelas">Wali Kelas</label>
-                                            <input type="text" class="form-control" id="edit_wali_kelas" name="edit_wali_kelas" required>
+                                            <input type="text" class="form-control" id="edit_wali_kelas" name="edit_wali_kelas" placeholder="Masukkan Nama Wali Kelas" required>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
