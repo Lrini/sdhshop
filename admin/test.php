@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Fitur CRUD</title>
-  <style>
+ <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
