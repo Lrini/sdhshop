@@ -96,24 +96,24 @@ if (!isset($_SESSION['id'])) {
             });
 
             $('#formEditKelas').submit(function(e) {
-                e.preventDefault();
-                var form = $(this);
+    e.preventDefault();
+    var form = $(this);
 
-                // Lakukan aksi update data melalui AJAX
-                $.ajax({
-                    url: 'process.php',
-                    method: 'POST',
-                    data: form.serialize(),
-                    success: function(response) {
-                        // Tampilkan pesan sukses atau error
-                        alert(response);
+    // Lakukan aksi update data melalui AJAX
+    $.ajax({
+        url: 'process.php',
+        method: 'POST',
+        data: form.serialize(),
+        success: function(response) {
+            // Tampilkan pesan sukses atau error
+            alert(response);
 
-                        // Refresh halaman atau perbarui baris tabel dengan data yang diperbarui
-                        window.location.reload();
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(xhr.responseText);
-                    }
+            // Refresh halaman atau perbarui baris tabel dengan data yang diperbarui
+            window.location.reload();
+        },
+        error: function(xhr, status, error) {
+            console.log(xhr.responseText);
+        }
                 });
             });
         });
@@ -197,27 +197,8 @@ if (!isset($_SESSION['id'])) {
                         </div>
                     </div>
 
-                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="editModalLabel">Edit Kelas</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="formEditKelas" method="POST">
-                                        <input type="hidden" id="edit_id_kelas" name="edit_id_kelas">
-                                        <div class="form-group">
-                                            <label for="edit_nama_kelas">Nama Kelas</label>
-                                            <input type="text" class="form-control" id="edit_nama_kelas" name="edit_nama_kelas" placeholder="Masukkan Nama Kelas" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="edit_wali_kelas">Wali Kelas</label>
-                                            <input type="text" class="form-control" id="edit_wali_kelas" name="edit_wali_kelas" placeholder="Masukkan Nama Wali Kelas" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Update</button>
+                    
+
                                     </form>
                                 </div>
                             </div>
