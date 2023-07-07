@@ -46,6 +46,7 @@ if (isset($_GET['id_kelas'])) {
 <html lang="en">
 
 <head>
+<?php include "public/header.php"; ?> <!-- halaman untuk asset css pada halaman-->
     <meta charset="UTF-8">
     <title>Edit Kelas</title>
     <link rel="stylesheet" href="styles.css">

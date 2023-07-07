@@ -11,7 +11,7 @@ if (!isset($_SESSION['id'])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<?php include "public/header.php"; ?> <!-- halaman untuk asset css pada halaman-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Kelas</title>
     <link rel="stylesheet" href="styles.css">
@@ -128,7 +128,6 @@ if (!isset($_SESSION['id'])) {
 <body>
     <div id="layout-wrapper">
         <div class="main-content">
-            <?php include "public/header.php"; ?>
             <?php include "public/akun.php"; ?>
 
             <div class="topnav">
