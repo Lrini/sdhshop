@@ -139,6 +139,7 @@ if (!isset($_SESSION['id'])) {
                         Tambah Kelas
                     </button>
 
+                    <br><br>
                     <table class="table dt-responsive nowrap" id="kelasTable">
                         <thead>
                             <tr>
