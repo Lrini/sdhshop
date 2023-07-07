@@ -12,13 +12,21 @@ if (!isset($_SESSION['id'])) {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Kelas</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/css/jquery.dataTables.css">
     <style>
-        /* Gaya CSS tambahan */
+      
         .btn {
             margin-right: 5px;
+        }
+    
+          @media (max-width: 768px) {
+        
+            #kelasTable {
+                overflow-x: auto;
+            }
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -249,3 +257,4 @@ if (!isset($_SESSION['id'])) {
 </body>
 
 </html>
+
