@@ -95,27 +95,9 @@ if (!isset($_SESSION['id'])) {
                 });
             });
 
-            $('#formEditKelas').submit(function(e) {
-    e.preventDefault();
-    var form = $(this);
+           
+            
 
-    // Lakukan aksi update data melalui AJAX
-    $.ajax({
-        url: 'process.php',
-        method: 'POST',
-        data: form.serialize(),
-        success: function(response) {
-            // Tampilkan pesan sukses atau error
-            alert(response);
-
-            // Refresh halaman atau perbarui baris tabel dengan data yang diperbarui
-            window.location.reload();
-        },
-        error: function(xhr, status, error) {
-            console.log(xhr.responseText);
-        }
-                });
-            });
         });
     </script>
 </head>
@@ -161,8 +143,9 @@ if (!isset($_SESSION['id'])) {
                                     <td><?php echo $data['nama_kelas']; ?></td>
                                     <td><?php echo $data['walikelas']; ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary edit-data" data-id="<?php echo $data['id_kelas']; ?>" data-toggle="modal" data-target="#editModal">Edit</button>
-                                        <a href="#" class="btn btn-danger hapus-data" data-id="<?php echo $data['id_kelas']; ?>">Hapus</a>
+                                    <a href="editkelas.php?" class="btn btn-primary update-data" data-id="<?php echo $data['id_kelas']; ?>">Update</a>
+                                                                             
+                                    <a href="#" class="btn btn-danger hapus-data" data-id="<?php echo $data['id_kelas']; ?>">Hapus</a>
                                     </td>
                                 </tr>
                             <?php
@@ -197,18 +180,9 @@ if (!isset($_SESSION['id'])) {
                         </div>
                     </div>
 
-                    
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                  <!-- End Page-content -->
-
-
-                  <footer class="footer">
+                <!-- End Page-content -->
+                <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
@@ -225,7 +199,6 @@ if (!isset($_SESSION['id'])) {
                     </div>
                 </footer>
             </div>
-
             <?php include "public/footer.php"; ?>
         </div>
     </div>

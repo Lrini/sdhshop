@@ -42,7 +42,7 @@ if (isset($_POST['edit_id_kelas']) && isset($_POST['edit_nama_kelas']) && isset(
     // Lakukan proses edit kelas di database dengan prepared statements
     $query = "UPDATE kelas SET nama_kelas = ?, walikelas = ? WHERE id_kelas = ?";
     $stmt = mysqli_prepare($koneksi, $query);
-    mysqli_stmt_bind_param($stmt, 'ssi', $nama_kelas, $walikelas, $id_kelas);
+    mysqli_stmt_bind_param($stmt, 'ssi', $nama_kelas, $wali_kelas, $id_kelas);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "Kelas berhasil diperbarui";
