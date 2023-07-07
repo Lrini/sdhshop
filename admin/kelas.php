@@ -27,17 +27,38 @@ if (!isset($_SESSION['id'])) {
         $(document).ready(function() {
             $('#kelasTable').DataTable();
 
-            $('.edit-data').click(function(e) {
+            $('.hapus-data').click(function(e) {
                 e.preventDefault();
                 var id_kelas = $(this).data('id');
 
-                // Lakukan aksi edit data dengan menggunakan id_kelas
-                // Misalnya, tampilkan modal edit dengan data kelas yang sesuai
+                // Lakukan aksi hapus data dengan menggunakan id_kelas
+                // Misalnya, konfirmasi penghapusan dan lakukan penghapusan data melalui AJAX
                 $.ajax({
                     url: 'process.php',
                     method: 'GET',
                     data: {
-                        edit_id: id_kelas
+                        hapus_id: id_kelas
+                    },
+                    success: function() {
+                        // Refresh halaman atau hapus baris tabel yang dihapus
+                        window.location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+
+            $('.edit-data').click(function(e) {
+                e.preventDefault();
+                var id_kelas = $(this).data('id');
+
+                // Ambil data kelas dari server melalui AJAX
+                $.ajax({
+                    url: 'process.php',
+                    method: 'GET',
+                    data: {
+                        id_kelas: id_kelas
                     },
                     dataType: 'json',
                     success: function(data) {
@@ -54,20 +75,17 @@ if (!isset($_SESSION['id'])) {
                 });
             });
 
-            $('.hapus-data').click(function(e) {
+            $('#formEditKelas').submit(function(e) {
                 e.preventDefault();
-                var id_kelas = $(this).data('id');
+                var form = $(this);
 
-                // Lakukan aksi hapus data dengan menggunakan id_kelas
-                // Misalnya, konfirmasi penghapusan dan lakukan penghapusan data melalui AJAX
+                // Lakukan aksi update data melalui AJAX
                 $.ajax({
-                    url: 'process.php',
-                    method: 'GET',
-                    data: {
-                        hapus_id: id_kelas
-                    },
+                    url: 'update_kelas.php',
+                    method: 'POST',
+                    data: form.serialize(),
                     success: function() {
-                        // Refresh halaman atau hapus baris tabel yang dihapus
+                        // Refresh halaman atau perbarui baris tabel dengan data yang telah diperbarui
                         window.location.reload();
                     },
                     error: function(xhr, status, error) {
@@ -94,9 +112,6 @@ if (!isset($_SESSION['id'])) {
                     }
                 });
             });
-
-           
-            
 
         });
     </script>
@@ -143,9 +158,9 @@ if (!isset($_SESSION['id'])) {
                                     <td><?php echo $data['nama_kelas']; ?></td>
                                     <td><?php echo $data['walikelas']; ?></td>
                                     <td>
-                                    <a href="editkelas.php?" class="btn btn-primary update-data" data-id="<?php echo $data['id_kelas']; ?>">Update</a>
-                                                                             
-                                    <a href="#" class="btn btn-danger hapus-data" data-id="<?php echo $data['id_kelas']; ?>">Hapus</a>
+                                    <a href="update_kelas.php?id_kelas=<?php echo $data['id_kelas']; ?>" class="btn btn-primary">Edit</a>
+
+                                        <a href="#" class="btn btn-danger hapus-data" data-id="<?php echo $data['id_kelas']; ?>">Hapus</a>
                                     </td>
                                 </tr>
                             <?php
@@ -157,7 +172,8 @@ if (!isset($_SESSION['id'])) {
                     <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="tambahModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                
+<div class="modal-header">
                                     <h5 class="modal-title" id="tambahModalLabel">Tambah Kelas</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -174,6 +190,33 @@ if (!isset($_SESSION['id'])) {
                                             <input type="text" class="form-control" id="wali_kelas" name="wali_kelas" placeholder="Masukkan Nama Wali Kelas" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Tambah</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">Edit Kelas</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="formEditKelas" method="POST">
+                                        <input type="hidden" id="edit_id_kelas" name="id_kelas">
+                                        <div class="form-group">
+                                            <label for="edit_nama_kelas">Nama Kelas</label>
+                                            <input type="text" class="form-control" id="edit_nama_kelas" name="nama_kelas" placeholder="Masukkan Nama Kelas" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="edit_wali_kelas">Wali Kelas</label>
+                                            <input type="text" class="form-control" id="edit_wali_kelas" name="wali_kelas" placeholder="Masukkan Nama Wali Kelas" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                     </form>
                                 </div>
                             </div>
