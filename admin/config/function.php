@@ -10,6 +10,47 @@ function query($query){
     }
     return $rows;
 }
+//gambar
+function gambar(){
+    $namaFile = $_FILES['gambar']['name'];
+    $ukuranFile = $_FILES['gambar']['size'];
+    $error = $_FILES['gambar']['error'];
+    $tipe = $_FILES['gambar']['tmp_name'];
+
+    //cek apa tidak ada gambar yang di upload 
+    if (($error === 4)) {
+        echo "<script>
+                alert ('pilih gambar terlebih dahulu');
+                </script>";
+    return false;
+    }
+    //cek gambar atau bukan 
+    $ekstensi = ['jpg','jpeg','png'];
+    $eks = explode('.', $namaFile);
+    $eks = strtolower(end($eks));
+    if (!in_array($eks, $ekstensi)) {
+        echo "<script>
+                alert ('bukan gambar');
+                </script>";
+        return false;
+    }
+
+    //cek ukuran gambar 
+    if ($ukuranFile >500000) {
+        echo "<script>
+                alert ('ukuran terlalu besar');
+                </script>";
+    }
+    //lolos cek generete nama baru 
+    //$namabaru = uniqid();
+    //var_dump($namabaru);die;
+    //$namabaru .= '.';
+    //$namabaru .= $eks;
+    move_uploaded_file($tipe, '../data/'.$namaFile);
+    //var_dump($namaFile);die;
+    return $namaFile;
+
+}
 //function untuk tambah data atau simpan data
 function tambahadmin(){
     global $kon;
@@ -85,6 +126,22 @@ function tambahkelas(){
     return mysqli_affected_rows($kon);
 }
 
+function tambahbaju(){
+    global $kon;
+    $nama = $_POST['nama_baju'];
+    $kelas = $_POST['id_kelas'];
+    $jmlh = $_POST['jmlh'];
+    $status = $_POST['status'];
+
+    $gambar = gambar();
+    if (!$gambar){
+        return false;
+    }
+
+    $sql = mysqli_query($kon,"insert into baju (nama_baju,gambar,id_kelas,jmlh,status) values ('$nama','$gambar','$kelas','$jmlh','$status')");
+    return mysqli_affected_rows($kon);
+}
+
 
 //function untuk edit data
 function editadmin(){
@@ -155,6 +212,16 @@ function editkelas(){
     $sql = mysqli_query($kon,"update kelas set nama_kelas ='$nama_kelas', walikelas='$wali', status='$status' where id_kelas='$kelas'");
     return mysqli_affected_rows($kon);
 }
+
+function editbaju(){
+    global $kon;
+    $baju= $_POST['id_baju'];
+    $nama = $_POST['nama_baju'];
+    $jmlh = $_POST['jmlh'];
+    $kelas = $_POST['id_kelas'];
+    $data1 = mysqli_query($kon,"update baju set nama_baju='$nama',id_kelas='$kelas',jmlh='$jmlh' where id_baju = '$baju'");
+    return mysqli_affected_rows($kon);
+}
 //function untuk hapus data 
 function hapusadmin($id_user){
     global $kon;
@@ -185,4 +252,16 @@ function hapuskelas($id_kelas){
     $sql= mysqli_query($kon,"DELETE FROM kelas WHERE id_kelas=$id_kelas");
     return mysqli_affected_rows($kon);
 }
+
+function hapusbaju($id_baju){
+    global $kon;
+    $sql = mysqli_query($kon,"select * from baju where id_baju = $id_baju");
+    $data = mysqli_fetch_array($sql);
+
+    if(is_file("../../data/".$data['gambar'])) unlink("../../data/".$data['gambar']);
+    mysqli_query($kon,"delete from baju where id_baju = $id_baju");
+    return mysqli_affected_rows($kon);
+}
+
+
 ?>
