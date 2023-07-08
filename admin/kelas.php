@@ -14,6 +14,7 @@ if (!isset($_SESSION['id'])) {
 <?php include "public/header.php"; ?> <!-- halaman untuk asset css pada halaman-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Kelas</title>
+    //masukan perintah dibawah ini ke file header.php agar jadi satu dan bisa dipakai berulang oleh halaman lain
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="assets/css/jquery.dataTables.css">
     <style>
@@ -123,6 +124,7 @@ if (!isset($_SESSION['id'])) {
 
         });
     </script>
+    //masukan perintah diatas ini ke file header.php agar jadi satu dan bisa dipakai berulang oleh halaman lain
 </head>
 
 <body>
