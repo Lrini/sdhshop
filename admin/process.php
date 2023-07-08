@@ -1,6 +1,6 @@
 <?php
 include "../koneksi.php";
-
+//buat perintah ini kedalam function sehingga perintah dibawah ini dalah function 
 // Proses tambah kelas
 if (isset($_POST['nama_kelas']) && isset($_POST['wali_kelas'])) {
     $nama_kelas = $_POST['nama_kelas'];
