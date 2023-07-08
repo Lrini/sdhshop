@@ -9,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 
 <?php
 
-
+//buat sebuah function untuk tampung instruksi dibawah ini jangan gabungkan dalam satu halaman web
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_kelas = $_POST['id_kelas'];
     $nama_kelas = $_POST['nama_kelas'];
@@ -39,7 +39,7 @@ if (isset($_GET['id_kelas'])) {
     header("Location: kelas.php");
     exit();
 }
-
+//buat sbeuah funtin untuk tampung instruksi diatas ini jangan gabungkan dalam satu halaman web
 ?>
 
 <!DOCTYPE html>
