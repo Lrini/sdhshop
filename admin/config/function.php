@@ -212,6 +212,16 @@ function editkelas(){
     $sql = mysqli_query($kon,"update kelas set nama_kelas ='$nama_kelas', walikelas='$wali', status='$status' where id_kelas='$kelas'");
     return mysqli_affected_rows($kon);
 }
+
+function editbaju(){
+    global $kon;
+    $baju= $_POST['id_baju'];
+    $nama = $_POST['nama_baju'];
+    $jmlh = $_POST['jmlh'];
+    $kelas = $_POST['id_kelas'];
+    $data1 = mysqli_query($kon,"update baju set nama_baju='$nama',id_kelas='$kelas',jmlh='$jmlh' where id_baju = '$baju'");
+    return mysqli_affected_rows($kon);
+}
 //function untuk hapus data 
 function hapusadmin($id_user){
     global $kon;
@@ -242,4 +252,16 @@ function hapuskelas($id_kelas){
     $sql= mysqli_query($kon,"DELETE FROM kelas WHERE id_kelas=$id_kelas");
     return mysqli_affected_rows($kon);
 }
+
+function hapusbaju($id_baju){
+    global $kon;
+    $sql = mysqli_query($kon,"select * from baju where id_baju = $id_baju");
+    $data = mysqli_fetch_array($sql);
+
+    if(is_file("../../data/".$data['gambar'])) unlink("../../data/".$data['gambar']);
+    mysqli_query($kon,"delete from baju where id_baju = $id_baju");
+    return mysqli_affected_rows($kon);
+}
+
+
 ?>

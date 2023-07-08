@@ -153,8 +153,9 @@ if (!isset($_SESSION['id'])) {
                                             echo "<td>$data[nama_kelas]</td>";
                                             echo "<td>$data[jmlh]</td>";
                                             echo "<td>
-                                        <a href = '#' class='edit_data5 btn btn-sm btn-primary' id='" . $data['id_baju'] . "'>Edit</a>
-                                        <a href = 'config/hapuskelas.php?id_user=" . $data['id_baju'] . "' class='btn btn-sm btn-danger'>Hapus</a>
+                                        <a href = '#' class='edit_data5 btn btn-sm btn-info' id='" . $data['id_baju'] . "'>Gambar</a>
+                                        <a href = '#' class='edit_data3 btn btn-sm btn-primary' id='" . $data['id_baju'] . "'>Edit</a>
+                                        <a href = 'config/hapusbaju.php?id_baju=" . $data['id_baju'] . "' class='btn btn-sm btn-danger'>Hapus</a>
                                     </td>
                                     ";
                                             echo "</tr>";
@@ -172,7 +173,7 @@ if (!isset($_SESSION['id'])) {
                         <div class="modal-dialog modal-md">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Form Inputan Baju</h5>
+                                    <h5 class="modal-title">Detail gambar</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -184,6 +185,23 @@ if (!isset($_SESSION['id'])) {
                         </div>
                     </div>
 
+                    <!--modal edit -->
+                    <div id="editData3" class="modal fade">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Edit data baju </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="info_update3">
+                                    <?php include "./modal/editbaju.php" ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--modal edit-->
                 </div>
                 <!-- End Page-content -->
 
@@ -227,6 +245,25 @@ if (!isset($_SESSION['id'])) {
                             $("#info_update5").html(data);
                             jQuery.noConflict();
                             $("#editData5").modal('show');
+                        }
+                    });
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(document).on('click', '.edit_data3', function() {
+                    var edit_id3 = $(this).attr('id');
+                    $.ajax({
+                        url: "./modal/editbaju.php",
+                        type: "post",
+                        data: {
+                            edit_id3: edit_id3
+                        },
+                        success: function(data) {
+                            $("#info_update3").html(data);
+                            jQuery.noConflict();
+                            $("#editData3").modal('show');
                         }
                     });
                 });
