@@ -178,7 +178,7 @@ if (!isset($_SESSION['id'])) {
                             ?>
                         </tbody>
                     </table>
-
+//buat halaman baru untuk halaman modal dibawah ini 
                     <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="tambahModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -232,7 +232,7 @@ if (!isset($_SESSION['id'])) {
                             </div>
                         </div>
                     </div>
-
+            //buat halaman baru untuk halaman modal diatas ini 
                 </div>
                 <!-- End Page-content -->
                 <footer class="footer">
