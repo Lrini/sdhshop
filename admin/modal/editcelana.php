@@ -2,17 +2,17 @@
 include('../../koneksi.php');
 if (isset($_POST['edit_id3'])) {
     $id = $_POST['edit_id3'];
-    $data = mysqli_query($koneksi, "select * from baju where id_baju='$id'");
+    $data = mysqli_query($koneksi, "select * from celana where id_celana='$id'");
     while ($sql = mysqli_fetch_array($data)) : ?>
-        <form role="form" action="config/bajuupdate.php" method="post" enctype="multipart/form-data">
+        <form role="form" action="config/celanaupdate.php" method="post" enctype="multipart/form-data">
             <div class="from-group">
-                <label>Id_Baju </label>
-                <input type="text" class="form-control" name="id_baju" value="<?php echo $sql['id_baju'] ?>" required='required' disabled='disable'>
-                <input type="hidden" name="id_baju" value="<?php echo $sql['id_baju'] ?>">
+                <label>Id_Celana </label>
+                <input type="text" class="form-control" name="id_celana" value="<?php echo $sql['id_celana'] ?>" required='required' disabled='disable'>
+                <input type="hidden" name="id_celana" value="<?php echo $sql['id_celana'] ?>">
             </div>
             <div class="form-group">
-                <label> Nama baju</label>
-                <input type="text" class="form-control" name="nama_baju" value="<?php echo $sql['nama_baju'] ?>" placeholder="Nama Baju" />
+                <label> Nama celana</label>
+                <input type="text" class="form-control" name="nama_celana" value="<?php echo $sql['nama_celana'] ?>" placeholder="Nama celana" />
             </div>
             <div class="form-group">
                 <label>Jumlah barang</label>

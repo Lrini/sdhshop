@@ -75,7 +75,7 @@
           </div>
           <div class="col-xl-4 col-lg-4 col-md-6 col-sm-7 col-5">
             <div class="logo ">
-              <a href="index.html"><img src="img/logo/logo.png" alt="aruk-logo"></a>
+              <a href="index.html"><img src="img/logo/sdhkupang.png" alt="aruk-logo"></a>
             </div>
           </div>
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-5">
