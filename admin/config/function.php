@@ -142,6 +142,20 @@ function tambahbaju(){
     return mysqli_affected_rows($kon);
 }
 
+function tambahcelana(){
+    global $kon;
+    $nama= $_POST['nama_celana'];
+    $kelas = $_POST['id_kelas'];
+    $jmlh = $_POST['jmlh'];
+    $status = $_POST['status'];
+    $gambar = gambar();
+    if (!$gambar){
+        return false;
+    }
+
+    $sql = mysqli_query($kon,"insert into celana (nama_celana,id_kelas,jmlh,status,gambar) values ('$nama','$kelas','$jmlh','$status','$gambar')");
+    return mysqli_affected_rows($kon);
+}
 
 //function untuk edit data
 function editadmin(){
@@ -219,7 +233,19 @@ function editbaju(){
     $nama = $_POST['nama_baju'];
     $jmlh = $_POST['jmlh'];
     $kelas = $_POST['id_kelas'];
-    $data1 = mysqli_query($kon,"update baju set nama_baju='$nama',id_kelas='$kelas',jmlh='$jmlh' where id_baju = '$baju'");
+    $status = $_POST['status'];
+    $data1 = mysqli_query($kon,"update baju set nama_baju='$nama',id_kelas='$kelas',jmlh='$jmlh', status='$status' where id_baju = '$baju'");
+    return mysqli_affected_rows($kon);
+}
+
+function editcelana () {
+    global $kon;
+    $celana = $_POST['id_celana'];
+    $nama = $_POST['nama_celana'];
+    $jmlh = $_POST['jmlh'];
+    $kelas = $_POST['id_kelas'];
+    $status = $_POST['status'];
+    $sql = mysqli_query($kon,"update celana set nama_celana='$nama',jmlh='$jmlh',id_kelas='$kelas',status='$status' where id_celana = '$celana'");
     return mysqli_affected_rows($kon);
 }
 //function untuk hapus data 
@@ -262,6 +288,13 @@ function hapusbaju($id_baju){
     mysqli_query($kon,"delete from baju where id_baju = $id_baju");
     return mysqli_affected_rows($kon);
 }
+function hapuscelana($id_celana){
+    global $kon;
+    $sql = mysqli_query($kon,"select * from celana where id_celana = $id_celana");
+    $data = mysqli_fetch_array($sql);
 
-
+    if(is_file("../../data/".$data['gambar'])) unlink("../../data/".$data['gambar']);
+    mysqli_query($kon,"delete from celana where id_celana = $id_celana");
+    return mysqli_affected_rows($kon);
+}
 ?>
