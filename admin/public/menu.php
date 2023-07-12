@@ -25,7 +25,7 @@
                 <a href="kelas.php" class="dropdown-item">Kelas</a>
                 <a href="baju.php" class="dropdown-item">Baju</a>
                 <a href="celana.php" class="dropdown-item">Celana</a>
-                <a href="ui-general.html" class="dropdown-item">Tambahan</a>
+                <a href="tambahan.php" class="dropdown-item">Tambahan</a>
             </div>
         </li>
         <li class="nav-item dropdown">
