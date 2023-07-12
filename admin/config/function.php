@@ -156,7 +156,20 @@ function tambahcelana(){
     $sql = mysqli_query($kon,"insert into celana (nama_celana,id_kelas,jmlh,status,gambar) values ('$nama','$kelas','$jmlh','$status','$gambar')");
     return mysqli_affected_rows($kon);
 }
+function tambahbrng(){
+    global $kon;
+    $nama= $_POST['nama_brng'];
+    $kelas = $_POST['id_kelas'];
+    $jmlh = $_POST['jmlh'];
+    $status = $_POST['status'];
+    $gambar = gambar();
+    if (!$gambar){
+        return false;
+    }
 
+    $sql = mysqli_query($kon,"insert into barang (nama_brng,id_kelas,jmlh,status,gambar) values ('$nama','$kelas','$jmlh','$status','$gambar')");
+    return mysqli_affected_rows($kon);
+}
 //function untuk edit data
 function editadmin(){
     global $kon;
@@ -248,6 +261,18 @@ function editcelana () {
     $sql = mysqli_query($kon,"update celana set nama_celana='$nama',jmlh='$jmlh',id_kelas='$kelas',status='$status' where id_celana = '$celana'");
     return mysqli_affected_rows($kon);
 }
+
+function editbarang(){
+    global $kon;
+    $id = $_POST['id_barang'];
+    $barang = $_POST['nama_barang'];
+    $kelas = $_POST['id_kelas'];
+    $jmlh = $_POST['jmlh'];
+    $status = $_POST['status'];
+
+    $sql = mysqli_query($kon,"update barang set nama_brng='$barang',id_kelas='$kelas',jmlh='$jmlh',status='$status' where id_barang='$id'");
+    return mysqli_affected_rows($kon);
+}
 //function untuk hapus data 
 function hapusadmin($id_user){
     global $kon;
@@ -295,6 +320,15 @@ function hapuscelana($id_celana){
 
     if(is_file("../../data/".$data['gambar'])) unlink("../../data/".$data['gambar']);
     mysqli_query($kon,"delete from celana where id_celana = $id_celana");
+    return mysqli_affected_rows($kon);
+}
+function hapusbarang($id_barang){
+    global $kon;
+    $sql = mysqli_query($kon,"select * from barang where id_barang = $id_barang");
+    $data = mysqli_fetch_array($sql);
+
+    if(is_file("../../data/".$data['gambar'])) unlink("../../data/".$data['gambar']);
+    mysqli_query($kon,"delete from barang where id_barang = $id_barang");
     return mysqli_affected_rows($kon);
 }
 ?>
